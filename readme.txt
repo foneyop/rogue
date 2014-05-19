@@ -21,37 +21,20 @@ constant so get over it.
 
 3. VIEWS
 
-panel is grabbing the body, ditching the panel div.
-no way to handle if content()
-
-If you have used Apache Wicket, the the XhtmlView will be familiar to you.  If
-you are more comfortable with JSP or Zend style views, we can do that too.
-
 The XhtmlView allows you to build your markup as a stand alone xhtml file.  You
 can build it in dreamwaver, vim, emacs, notepad whatever.  Once you have your
 markup with sample data, simply apply your rogue namespace attributes on the
 markup and let Rogue handle the mapping.  Rogue will compile the pure xhtml
 markup into a php file that maps the data into minified xhtml output.
 
-example xhtml view:
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:rogue="http://roguephp.sourceforge.net">
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <div id="friend_list" rogue:panel="">
-            <span>Search Google Contacts:</span><br/>
-            <input id="friend_search" name="friend_search" size="20" />
-			<!-- render a list of at most 20 friends, default max is 999 -->
-            <ol rogue:list="friendList" rogue:max="20" class="SmallText">
-                <li><input type="checkbox" rogue:name="friendList.getEmail" /><span rogue:id="friendList.getDisplayName|10"></span></li>
-            </ol>
-        </div>
-    </body>
-</html>
+Rogue creates the fastest views possible in PHP.  It does this by avoiding the
+expensive context switching between inline markup, and dynamic PHP code eg:
+<h1><?=$content?></h1>
+Switching between the markup content and the php code is expensive for the interpreter.
+Rogue avoids this switch by building pure PHP programs and using heredocs and printf
+to replace the content.  This typically results in views that are 30-50% faster than
+Smarty Templates or Zend Views.
+
 
 REQUIREMENTS:
 VIEW_DIR and VIEW_CACHE_DIR constants need to be defined.  VIEW_CACHE_DIR 
@@ -59,7 +42,22 @@ needs to be web writable and can exist anywhere on the FS.  You can also
 include views from absolute paths outside of VIEW_DIR.
 
 
-EXAMPLE:
+
+EXAMPLE VIEW:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ro="https://github.com/foneyop/rogue">
+    <body ro:panel="default">
+		<div>
+			<h1 ro:id="foo">Content To Be Replaced</h1>
+		</div>
+    </body>
+</html>
+
+
+EXAMPLE CODE:
 // the requirements
 define('VIEW_DIR', '/path/to/view');
 define('VIEW_CACHE_DIR', '/path/to/cache');
@@ -67,11 +65,46 @@ require_once '/full/path/to/rogue/views/XhtmlView.php';
 
 
 // create a new view
-$view = new XhtmlView('test/test.xhtml');
+$view = new XhtmlView('test.xhtml');
 // assign data to the view
-$view->add('foo', 'bar');
+$view->add('foo', 'Content From Code');
 // render will return a string of HTML
-echo $view->render();
+echo $view->render("body", "default");
+
+OUTPUTS:
+<div><h1>Content From Code</h1></div>
+
+
+3.0 View Replacement
+
+Views must be valid xhtml documents including the <?xml> header.  You can render
+any tag from an xhtml view by calling render() on your view object with the name
+of the tag and the rogue panel id.   For instance:
+$view = new XhtmlView("relative/path/to/view.xhtml");
+echo $view->render("body", "panel");
+
+Content in your views can be replaced by using the ro:id attribute on your content.
+Consider the following xhtml view file:
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ro="https://github.com/foneyop/rogue">
+    <body ro:panel="default">
+		<div>
+			<h1 ro:class="new_class" ro:id="foo">Content To Be Replaced</h1>
+		</div>
+    </body>
+</html>
+
+Adding the variable foo to the view, will replace the content "Content To Be Replaced" with the value
+of foo.
+
+<h1 ro:class="new_class" ro:id="foo">Content To Be Replaced</h1>
+$view->add("foo", "New Content");
+$view->add("new_class", "my css classes");
+renders: <h1 class="my css classes">New Content</h1>
+
+You can also replace xhtml attributes by placing ro: in front of the attribute name.  This will make
+the attribute replaceable the same way that xhtml content can be replaced.
 
 
 3.1 View Modifiers
@@ -89,23 +122,28 @@ cap: upercase the first letter of the first word
 allcap: upercase the first letter of all words
 ago: run the function timeAgo() on a unixtime stamp to get display time as "x units ago"
 
-add your own view modifiers by calling "XmlMods::addPlugin('name', 'code');".   To create a new plugin
+add your own view modifiers by calling "XmlMods::addPlugin('name', 'code');".   To create a new plugin.
 nl_to_br:
 
-XmlMods::addPLugin('nl_to_br', 'strreplace("\n", "<br />", $v)';
+Example of creating a plugin:
+XmlMods::addPlugin('nl_to_br', 'strreplace("\n", "<br />", $v)';
 
-in all cases $v will be the input.  This code will be injected into the compiled view
+This code "strreplace()" will be injected into the compiled view, in the compiled view the varialbe $v will contain the content to modify.
 
+Example Using Modifiers:
 
-
-<a rogue:href="companyList.name|url|deamp|pre:/company/" rogue:id="companyList.name">Big Al's Big Bait Shop</a>
+<a ro:href="companyList.name|url|deamp|pre:/company/" ro:id="companyList.name">Big And Al's</a>
+This will output $companyList["name"] or $companyList->getName() if $companyList is an object as the href
+attribute for the a tag.  companyList.name will be url encoded, &amp; changed to "and" for SEO and the value
+of company list will be prefixed with "/company/".  If name was "Big Mike &amp; Al&apos;s" it would be translated to:
+"/company/Big+Mike+and+Als"
 
 
 
 4. Lists:
 
-<ul rogue:list="menu">
-<li><a rogue:href="menu.href" rogue:class="menu.class|pre menu" rogue:id="menu.name">
+<ul ro:list="menu">
+	<li><a ro:href="menu.href" ro:class="menu.class|pre menu" ro:id="menu.name">
 </ul>
 
 input:
@@ -124,7 +162,7 @@ output:
 
 5. Conditionals:
 
-<div class="error" rogue:id="errorMsg" rogue:if="errorMsg"><img src='error' /></div>
+<div class="error" ro:id="errorMsg" ro:if="errorMsg"><img src='error' /></div>
 
 in this example the containing div and error image are ONLY displayed if the input "errorMsg" is added
 to the view variables.  Otherwise, an empty string is printed here.
