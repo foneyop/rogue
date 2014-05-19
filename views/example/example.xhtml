@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ro="http://github.com/FoneyOp/rogue">
+    <head>
+        <!--title ro:id="title">seem to be having some trouble outside the body tag</title-->
+    </head>
+    <body>
+        <h1 ro:id="info">an info line.  this will be big</h1>
+        <a ro:href="link" ro:id="link_text">we can link too</a>
+        <div ro:id="object.method()">result of an explicit method() call</div>
+        <div ro:id="object.getSomething|upper">result of an implicit method call notice the getter</div>
+        <!--div ro:id="object.somethingelse">this will fail with an object can not be referenced as array</div-->
+        <table ro:list="factoids">
+            <tr>
+                <td ro:id="name">factoid</td>
+                <td ro:id="description">the cool factoid description thingy!</td>
+            </tr>
+        </table>
+
+        <h2 ro:msg="example.label1">data from resource file</h2>
+    </body>
+</html>

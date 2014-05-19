@@ -1,0 +1,28 @@
+<?php
+$factoids = ''; $listObject = $this->_x['factoids'];
+if ($listObject instanceOf iList) $listObject = $listObject->getArray();
+foreach ($listObject as $object) { $data = array();
+$data[] = (!isset($object['name'])) ? '' : $object['name'];
+$data[] = (!isset($object['description'])) ? '' : $object['description'];
+$template=<<<EOT
+<tr><td>%s</td><td>%s</td></tr>
+EOT;
+$this->_x['factoids_t'] .= vsprintf($template, $data);
+} $data = array();
+$data[] = (!isset($this->_x['info'])) ? '' : $this->_x['info'];
+$data[] = (!isset($this->_x['link'])) ? '' : $this->_x['link'];
+$data[] = (!isset($this->_x['link_text'])) ? '' : $this->_x['link_text'];
+$data[] = (!isset($this->_x['object'])) ? '' : $this->_x['object']->method();
+$data[] = (!isset($this->_x['object'])) ? '' : strtoupper($this->_x['object']->getSomething());
+$data[] = (!isset($this->_x['factoids_t'])) ? '' : $this->_x['factoids_t'];
+$msg = text::get('label1', 'example');
+preg_match_all('/(.*?)\$\{(\w+)\}/', $msg, $matches);
+if (count($matches) > 0) {$msg = '';echo "MSG: $msg\n";print_r($matches);for($i=0,$m=count($matches[0]); $i<$m; $i++)
+ {$msg .= $matches[1][$i];
+if (isset($this->_x[$matches[2][$i]]))
+ { $msg .= $this->_x[$matches[2][$i]]; 
+}else { $msg .= $matches[2][$i];
+ }} }echo "MSG: $msg\n";$data[] = $msg;$template=<<<EOT
+<body><h1>%s</h1><a href="%s">%s</a><div>%s</div><div>%s</div><table>%s</table><h2>%s</h2></body>
+EOT;
+$result=vsprintf($template, $data);

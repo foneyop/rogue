@@ -1,0 +1,21 @@
+<?php
+$list1 = ''; $listObject = $this->_x['list1'];
+if ($listObject instanceOf iList) $listObject = $listObject->getArray();
+foreach ($listObject as $object) { $data = array();
+$data[] = (!isset($object['name'])) ? '' : $object['name'];
+$data[] = (!isset($object['description'])) ? '' : $object['description'];
+$template=<<<EOT
+<tr><td>%s</td><td>%s</td><td>static content</td></tr>
+EOT;
+$this->_x['list1_t'] .= vsprintf($template, $data);
+} $data = array();
+$data[] = (!isset($this->_x['testText'])) ? '' : $this->_x['testText'];
+$data[] = (!isset($this->_x['testObj'])) ? '' : $this->_x['testObj']->getHref();
+$data[] = (!isset($this->_x['testObj'])) ? '' : $this->_x['testObj']->method();
+$data[] = text::get('message1', 'test');
+$data[] = (!isset($this->_x['listClass'])) ? '' : $this->_x['listClass'];
+$data[] = (!isset($this->_x['list1_t'])) ? '' : $this->_x['list1_t'];
+$template=<<<EOT
+<body onload="alert('loaded')"><div id="header">this is static header text</div><div id="wrapper"><span class="foo" id="bar">%s</span><a href="%s">%s</a><span style="color: blue;">%s</span><table class="%s" id="listId">%s</table></div></body>
+EOT;
+$result=vsprintf($template, $data);
