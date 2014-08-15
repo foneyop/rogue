@@ -39,7 +39,7 @@ function timeAgo($time)
  */
 class XhtmlView
 {
-    private $root;
+    private $root = array();
     private $_view;
     private $_forceCompile = false;
     private $_source = '';
@@ -69,7 +69,7 @@ class XhtmlView
 	 */
 	public function __construct($viewFile)
     {
-        $this->root = array();
+        //$this->root = array();
         $this->_view = $viewFile;
         if ($viewFile[0] == '/')
             $this->_source = $viewFile;
@@ -150,6 +150,7 @@ class XhtmlView
         $rendered = VIEW_CACHE_DIR . "/" . $this->_view . "-{$elm}-{$panel}-$ln-$ver";
         $st2 = stat($rendered);
         $st1 = stat($this->_source);
+		//echo "<pre>\n";
 		//goto foo;
         // compile if not cached, or first compile
         if (!$st1)
@@ -157,32 +158,26 @@ class XhtmlView
             $log->fatal("can not find view file: " . $this->_source);
             return '';
         }
-        if (!LIB_VIEW_CACHE_ENABLE || !$st2)
+		// always compile? not ever compiled?  source updated ?
+        if (!LIB_VIEW_CACHE_ENABLE || !$st2 || intval($st1['mtime']) > intval($st2['mtime']))
         {
-            $log->info($this->_view . " first compile or cache disabled");
+
+            $log->info($this->_view . " first compile, cache disabled, or stale");
             require_once ROGUE_DIR . '/views/XhtmlParser.php';
             $this->_parser = new XhtmlParser();
-			if ($elm == "head") {
-				//echo "parse: {$this->_view}, $rendered, $elm, $panel";
-			}
             $this->_parser->parse($this->_view, $rendered, strtoupper($elm), $panel);
-        }
-        // compile if stale
-        else if (intval($st1['mtime']) > intval($st2['mtime']))
-        {
-            require_once ROGUE_DIR . '/views/XhtmlParser.php';
-            $log->info($this->_view . " view stale, recompiling");
-            $this->_parser = new XhtmlParser();
-            $this->_parser->parse($this->_view, $rendered, strtoupper($elm), $panel);
-        }
-        else
+		}
+		else
         {
             // this is very verbose
-            //$log->trace($this->_view . " view is already compiled");
+            $log->trace($this->_view . " view is already compiled");
         }
+
         // TODO: move to Skin inject a script variable, this really should be in the Skin ....
-        if ($this->_script != '')
+        if ($this->_script != '') {
+			die("FIX THIS SCRIPT INJECTION");
             $this->root['script'] = '<script type="text/javascript">'.$this->_script.'</script>';
+		}
 
         // default to display an error
         $result = '<pre>no compiled view found, or compiler error ' . VIEW_CACHE_DIR . '/' . $this->_view . "</pre>";

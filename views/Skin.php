@@ -333,8 +333,7 @@ class Skin
 		if (!$returnResult) {
 			$doc .=  $this->_view->render('body', 'body') . "</html>";
 		} else {
-			echo $this->_view->render('body', 'body');
-			echo "</html>";
+			echo $this->_view->render('body', 'body') . "</html>";
 		}
 		return $doc;
 	}

@@ -810,6 +810,12 @@ class XhtmlParser
 
 		// what we need to do loop over the vars and add them to the template
 		//for ($i=1; $i<count($this->_SvarStack); $i++)
+		//echo "<pre>root: $root\n";
+		//print_r($this->_SvarStack);
+		//echo "</pre>\n";
+
+
+		if (isset($this->_SvarStack[$root])) {
 		foreach ($this->_SvarStack[$root] as $index => $var)
 		{
 			if (strstr($var, 'LIST:') !== false)
@@ -854,6 +860,7 @@ class XhtmlParser
 			//$this->_finalMarkup .= $out;
 			$this->_finalMarkup .= "####### ROW\n\n";
             unset ($this->_SvarStack[$root]);
+		}
 		}
         xtdbg("finish rogue recurse build");
     }

@@ -1,0 +1,790 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AbstractCache	cache/AbstractCache.php	/^abstract class AbstractCache implements Cache$/;"	c
+AutoHelp	views/ModuleDecorator.php	/^interface AutoHelp$/;"	i
+Cache	cache/AbstractCache.php	/^interface Cache$/;"	i
+CacheNotConnectedException	cache/AbstractCache.php	/^class CacheNotConnectedException extends Exception$/;"	c
+ConnectionError	persistence/DB.php	/^    private static function ConnectionError($name)$/;"	f
+ConnectionException	persistence/DB.php	/^class ConnectionException extends SQLException$/;"	c
+Coverage	util/Coverage.php	/^class Coverage$/;"	c
+DB	persistence/DB.php	/^class DB$/;"	c
+DuplicateKeyException	persistence/DB.php	/^class DuplicateKeyException extends SQLException$/;"	c
+Editable	views/ModuleDecorator.php	/^interface Editable$/;"	i
+FAIL_URL	persistence/DB.php	/^define ('FAIL_URL', 'EXCEPTION');$/;"	d
+HttpException	util/HttpRequest.php	/^class HttpException extends RuntimeException$/;"	c
+HttpRequest	util/HttpRequest.php	/^class HttpRequest$/;"	c
+HttpResponse	util/HttpRequest.php	/^class HttpResponse$/;"	c
+HttpTimeoutException	util/HttpRequest.php	/^class HttpTimeoutException extends RuntimeException$/;"	c
+I18N_DIR	views/example/example.php	/^define('I18N_DIR', getcwd() . '\/resources');$/;"	d
+LIB_CACHE_ENABLE	cache/AbstractCache.php	/^			define('LIB_CACHE_ENABLE', 0);$/;"	d
+LocalCache	cache/LocalCache.php	/^class LocalCache extends AbstractCache$/;"	c
+LogProfile	persistence/DB.php	/^class LogProfile implements Action$/;"	c
+Logger	util/Logger.php	/^class Logger$/;"	c
+LoggerHandler	util/Logger.php	/^	function LoggerHandler(int $errno, string $errstr, string $errfile, int $errline): void$/;"	f
+MemCacheFailure	cache/NetworkCache.php	/^    public static function MemCacheFailure($host, $port)$/;"	f
+ModuleDecorator	views/ModuleDecorator.php	/^class ModuleDecorator$/;"	c
+ModuleRenderable	views/ModuleDecorator.php	/^interface ModuleRenderable$/;"	i
+NetworkCache	cache/NetworkCache.php	/^class NetworkCache extends AbstractCache$/;"	c
+NetworkLockCache	cache/NetworkLockCache.php	/^class NetworkLockCache extends NetworkCache {$/;"	c
+NoCacheServersDefinedException	cache/AbstractCache.php	/^class NoCacheServersDefinedException extends Exception$/;"	c
+NullHandler	util/Logger.php	/^	function NullHandler(int $errno, string $errstr, string $errfile, int $errline): void$/;"	f
+PostRenderSql	persistence/DB.php	/^class PostRenderSql implements Action$/;"	c
+ROGUE_DIR	views/example/example.php	/^define('ROGUE_DIR', '..\/..');$/;"	d
+SQLException	persistence/DB.php	/^class SQLException extends Exception$/;"	c
+ShandleElm	views/XhtmlParser.php	/^    protected function ShandleElm(array $elm)$/;"	f
+Skin	views/Skin.php	/^class Skin$/;"	c
+Sproc	views/XhtmlParser.php	/^    protected function Sproc(array $xml, $panel = null)$/;"	f
+SprocessRogueAttr	views/XhtmlParser.php	/^    protected function SprocessRogueAttr($attrName, $value, array $elm)$/;"	f
+SqlProfile	persistence/SqlProfile.php	/^class SqlProfile$/;"	c
+SrecurseBuild	views/XhtmlParser.php	/^    protected function SrecurseBuild($root, $doOut = true)$/;"	f
+SyntaxException	persistence/DB.php	/^class SyntaxException extends SQLException$/;"	c
+Syslogger	util/Syslogger.php	/^class Syslogger$/;"	c
+VIEW_CACHE_DIR	views/example/example.php	/^define('VIEW_CACHE_DIR', VIEW_DIR . 'compiled\/');$/;"	d
+VIEW_DIR	views/example/example.php	/^define('VIEW_DIR', getcwd(). '\/');$/;"	d
+View	views/View.php	/^class View$/;"	c
+XHTML_DEBUG	views/XhtmlParser.php	/^define('XHTML_DEBUG', false);$/;"	d
+XHTML_EOL	views/XhtmlParser.php	/^define('XHTML_EOL', "");$/;"	d
+XHTML_EOT	views/XhtmlParser.php	/^define('XHTML_EOT', "");$/;"	d
+XhtmlModifiers	views/XhtmlModifiers.php	/^class XhtmlModifiers$/;"	c
+XhtmlParser	views/XhtmlParser.php	/^class XhtmlParser$/;"	c
+XhtmlParserException	views/XhtmlParser.php	/^class XhtmlParserException extends Exception$/;"	c
+XhtmlView	views/XhtmlView.php	/^class XhtmlView$/;"	c
+_ENCODE1	persistence/DB.php	/^	static protected $_ENCODE1 = array("'", '%', '"', "\\n", "\\r");$/;"	v
+_ENCODE2	persistence/DB.php	/^	static protected $_ENCODE2 = array("\\\\'", '\\%', '\\"', '\\n', '\\r');$/;"	v
+_ScurrentAttributes	views/XhtmlParser.php	/^        $this->_ScurrentAttributes = array();$/;"	v
+_ScurrentAttributes	views/XhtmlParser.php	/^    protected $_ScurrentAttributes = array();$/;"	v
+_ScurrentContent	views/XhtmlParser.php	/^		$this->_ScurrentContent = '';$/;"	v
+_ScurrentContent	views/XhtmlParser.php	/^            $this->_ScurrentContent = preg_replace('\/[ \\t]+\/', ' ', $elm['value']);$/;"	v
+_ScurrentContent	views/XhtmlParser.php	/^            $this->_ScurrentContent = preg_replace('\/\\s+\/', " ", $elm['value']);$/;"	v
+_ScurrentContent	views/XhtmlParser.php	/^        $this->_ScurrentContent = '';$/;"	v
+_ScurrentContent	views/XhtmlParser.php	/^    protected $_ScurrentContent = '';$/;"	v
+_ScurrentTag	views/XhtmlParser.php	/^        $this->_ScurrentTag= $elm;$/;"	v
+_ScurrentTag	views/XhtmlParser.php	/^    protected $_ScurrentTag = array();$/;"	v
+_SidxStack	views/XhtmlParser.php	/^    protected $_SidxStack = array();$/;"	v
+_Smap	views/XhtmlParser.php	/^    protected $_Smap = array();$/;"	v
+_SnxtPtr	views/XhtmlParser.php	/^    protected $_SnxtPtr = 0;$/;"	v
+_Sout	views/XhtmlParser.php	/^    protected $_Sout = array();$/;"	v
+_Sroots	views/XhtmlParser.php	/^    protected $_Sroots = array();$/;"	v
+_Stemplate	views/XhtmlParser.php	/^    protected $_Stemplate = array();$/;"	v
+_StemplateEnd	views/XhtmlParser.php	/^    protected $_StemplateEnd = array();$/;"	v
+_StemplateIndex	views/XhtmlParser.php	/^            $this->_StemplateIndex = end($this->_SidxStack);$/;"	v
+_StemplateIndex	views/XhtmlParser.php	/^        $this->_StemplateIndex = $this->_SnxtPtr++;$/;"	v
+_StemplateIndex	views/XhtmlParser.php	/^    protected $_StemplateIndex = 0;$/;"	v
+_SvarStack	views/XhtmlParser.php	/^    protected $_SvarStack = array();$/;"	v
+__construct	cache/AbstractCache.php	/^	protected function __construct()$/;"	f
+__construct	cache/AbstractCache.php	/^    public function __construct($message)$/;"	f
+__construct	cache/LocalCache.php	/^    protected function __construct()$/;"	f
+__construct	cache/NetworkCache.php	/^	protected function  __construct()$/;"	f
+__construct	cache/NetworkLockCache.php	/^    protected function  __construct() {$/;"	f
+__construct	persistence/DB.php	/^    protected function __construct(mysqli $connection, $master)$/;"	f
+__construct	persistence/DB.php	/^    public function  __construct(DB $db)$/;"	f
+__construct	persistence/SqlProfile.php	/^	private function  __construct()$/;"	f
+__construct	util/HttpRequest.php	/^    public function __construct($status,$info, $data){$/;"	f
+__construct	util/Logger.php	/^	private function __construct(string $name, bool $volatile = false)$/;"	f
+__construct	util/Syslogger.php	/^	public function __construct($logHost, $logPort)$/;"	f
+__construct	views/Skin.php	/^    private function __construct($defaultSkin = 'defaultSkin.xhtml')$/;"	f
+__construct	views/View.php	/^    public function __construct($_view)$/;"	f
+__construct	views/XhtmlParser.php	/^	public function __construct($message, $code = 1, $previous = null)$/;"	f
+__construct	views/XhtmlParser.php	/^    public function __construct()$/;"	f
+__construct	views/XhtmlView.php	/^	public function __construct($viewFile)$/;"	f
+__destruct	util/Logger.php	/^	public function __destruct()$/;"	f
+__destruct	util/Syslogger.php	/^    private function __destruct()$/;"	f
+__get	views/View.php	/^    public function __get($nm)$/;"	f
+__isset	views/View.php	/^    public function __isset($nm)$/;"	f
+__set	views/View.php	/^    public function __set($nm, $val)$/;"	f
+__unset	views/View.php	/^    public function __unset($nm)$/;"	f
+_ab	views/Skin.php	/^	protected $_ab = 'A';$/;"	v
+_ab	views/Skin.php	/^        $this->_ab = $version;$/;"	v
+_baseText	views/XhtmlModifiers.php	/^	private static $_baseText = '';$/;"	v
+_cache	cache/NetworkCache.php	/^        $this->_cache = $cache;$/;"	v
+_cache	cache/NetworkCache.php	/^    protected $_cache;$/;"	v
+_canonical	views/Skin.php	/^        $this->_canonical = $url;$/;"	v
+_canonical	views/Skin.php	/^    private $_canonical;$/;"	v
+_code	views/Skin.php	/^	protected $_code = '';$/;"	v
+_conditionList	views/XhtmlParser.php	/^        $this->_conditionList = array();$/;"	v
+_conditionList	views/XhtmlParser.php	/^    protected $_conditionList;$/;"	v
+_conditionals	views/XhtmlParser.php	/^		$this->_conditionals = array();$/;"	v
+_conditionals	views/XhtmlParser.php	/^	protected $_conditionals;$/;"	v
+_connected	cache/LocalCache.php	/^			$this->_connected = false;$/;"	v
+_connected	cache/LocalCache.php	/^	protected $_connected = false;$/;"	v
+_connected	cache/LocalCache.php	/^        $this->_connected = true;$/;"	v
+_connected	cache/NetworkCache.php	/^		$this->_connected = false;$/;"	v
+_connected	cache/NetworkCache.php	/^		$this->_connected = true;$/;"	v
+_connection	persistence/DB.php	/^        $this->_connection = $connection;$/;"	v
+_content	views/ModuleDecorator.php	/^		$this->_content = '';$/;"	v
+_content	views/ModuleDecorator.php	/^    protected $_content = '';$/;"	v
+_creationTime	util/Logger.php	/^	protected static $_creationTime = null;$/;"	v
+_currentCloseStack	views/XhtmlParser.php	/^        $this->_currentCloseStack = array();$/;"	v
+_currentCloseStack	views/XhtmlParser.php	/^    protected $_currentCloseStack;$/;"	v
+_currentList	views/XhtmlParser.php	/^			$this->_currentList = $value;$/;"	v
+_currentList	views/XhtmlParser.php	/^        $this->_currentList = '';$/;"	v
+_currentList	views/XhtmlParser.php	/^    protected $_currentList;$/;"	v
+_data	util/HttpRequest.php	/^        $this->_data = $data;$/;"	v
+_data	util/HttpRequest.php	/^    protected $_data;$/;"	v
+_db	persistence/DB.php	/^        $this->_db = $db;$/;"	v
+_db	persistence/DB.php	/^    private $_db;$/;"	v
+_delayed	persistence/DB.php	/^    protected $_delayed = array();$/;"	v
+_delete	cache/LocalCache.php	/^	private $_delete = 0;$/;"	v
+_description	views/Skin.php	/^		$this->_description = $description;$/;"	v
+_description	views/Skin.php	/^	protected $_description = '';$/;"	v
+_description	views/Skin.php	/^            $this->_description = $description;$/;"	v
+_details	views/XhtmlParser.php	/^	protected $_details;$/;"	v
+_details	views/XhtmlParser.php	/^        $this->_details = array();$/;"	v
+_dups	persistence/SqlProfile.php	/^		$this->_dups = array();$/;"	v
+_dups	persistence/SqlProfile.php	/^	private $_dups;$/;"	v
+_effectedRows	persistence/DB.php	/^                $this->_effectedRows = mysqli_affected_rows($this->_connection);$/;"	v
+_effectedRows	persistence/DB.php	/^                $this->_effectedRows = mysqli_num_rows($this->_lastResult);$/;"	v
+_effectedRows	persistence/DB.php	/^        $this->_effectedRows = null;$/;"	v
+_entries	util/Logger.php	/^	protected static $_entries = array();$/;"	v
+_entries	util/Logger.php	/^            $this->_entries = array();$/;"	v
+_error	views/Skin.php	/^		$this->_error = false;$/;"	v
+_error	views/Skin.php	/^		$this->_error = true;$/;"	v
+_error	views/Skin.php	/^	private $_error;$/;"	v
+_facility	util/Syslogger.php	/^	protected $_facility = Syslogger::SYSLOG_LOCAL0;$/;"	v
+_finalMarkup	views/XhtmlParser.php	/^        $this->_finalMarkup = "<?php\\n";$/;"	v
+_finalMarkup	views/XhtmlParser.php	/^    protected $_finalMarkup;$/;"	v
+_forceCompile	views/XhtmlView.php	/^        $this->_forceCompile = true;$/;"	v
+_forceCompile	views/XhtmlView.php	/^    private $_forceCompile = false;$/;"	v
+_forceMaster	persistence/DB.php	/^    protected static $_forceMaster;$/;"	v
+_formatStr	util/Logger.php	/^		$this->_formatStr = array();$/;"	v
+_formatStr	util/Logger.php	/^	protected $_formatStr;$/;"	v
+_formats	util/Logger.php	/^	protected static $_formats = array();$/;"	v
+_header	util/Syslogger.php	/^        $this->_header = sprintf('<%d>%s %s ', ($facility * 8 + $severity), date('M i G:i:s '), $host);$/;"	v
+_header	views/Skin.php	/^    private $_header = array();$/;"	v
+_hit	cache/LocalCache.php	/^	private $_hit = 0;$/;"	v
+_incPtr	views/XhtmlParser.php	/^    protected $_incPtr;$/;"	v
+_info	util/HttpRequest.php	/^        $this->_info = $info;$/;"	v
+_info	util/HttpRequest.php	/^    protected $_info;$/;"	v
+_instance	cache/LocalCache.php	/^    protected static $_instance;$/;"	v
+_instance	cache/NetworkCache.php	/^	private static $_instance;$/;"	v
+_instance	cache/NetworkLockCache.php	/^    private static $_instance;$/;"	v
+_instance	persistence/DB.php	/^    static protected $_instance = array();$/;"	v
+_instance	persistence/SqlProfile.php	/^	protected static $_instance = null;$/;"	v
+_instance	views/Skin.php	/^	protected static $_instance = null;$/;"	v
+_instance	views/XhtmlView.php	/^	private static $_instance = array();$/;"	v
+_iteratorMarkup	views/XhtmlParser.php	/^        $this->_iteratorMarkup = array();$/;"	v
+_iteratorMarkup	views/XhtmlParser.php	/^    protected $_iteratorMarkup;$/;"	v
+_key	cache/AbstractCache.php	/^		$this->_key = $this->createKey($key);$/;"	v
+_key	cache/AbstractCache.php	/^		$this->_key = null;$/;"	v
+_key	cache/AbstractCache.php	/^	protected $_key;$/;"	v
+_key	cache/LocalCache.php	/^			$this->_key = $key;$/;"	v
+_key	cache/NetworkCache.php	/^            $this->_key = $this->createKey($throws);$/;"	v
+_lastResult	persistence/DB.php	/^        $this->_lastResult = mysqli_query($this->_connection, $query . " -- $name");$/;"	v
+_lastResult	persistence/DB.php	/^        $this->_lastResult = null;$/;"	v
+_listStack	views/XhtmlParser.php	/^        $this->_listStack = array();$/;"	v
+_listStack	views/XhtmlParser.php	/^    protected $_listStack;$/;"	v
+_log	cache/AbstractCache.php	/^	protected $_log;$/;"	v
+_log	cache/AbstractCache.php	/^        $this->_log = Logger::getLogger('cache');$/;"	v
+_log	cache/NetworkCache.php	/^		$this->_log = Logger::getLogger('cache');$/;"	v
+_log	persistence/DB.php	/^    static protected $_log = false;$/;"	v
+_log	views/XhtmlParser.php	/^        $this->_log = Logger::getLogger('xhtml');$/;"	v
+_logFile	util/Logger.php	/^	protected static $_logFile;$/;"	v
+_logHost	util/Logger.php	/^	protected static $_logHost;$/;"	v
+_logHost	util/Syslogger.php	/^	protected $_logHost;$/;"	v
+_logHost	util/Syslogger.php	/^        $this->_logHost = $logHost;$/;"	v
+_logLevel	util/Logger.php	/^			$this->_logLevel = $GLOBALS['LOGLEVEL'];$/;"	v
+_logLevel	util/Logger.php	/^			$this->_logLevel = $GLOBALS['LOGLEVEL-' . $name];$/;"	v
+_logLevel	util/Logger.php	/^		$this->_logLevel = $level;$/;"	v
+_logLevel	util/Logger.php	/^	protected $_logLevel;$/;"	v
+_logLevel	util/Logger.php	/^            $this->_logLevel = Logger::FATAL;$/;"	v
+_logName	util/Logger.php	/^		$this->_logName = $name;$/;"	v
+_logName	util/Logger.php	/^	protected $_logName;$/;"	v
+_logPort	util/Syslogger.php	/^	protected $_logPort;$/;"	v
+_logPort	util/Syslogger.php	/^        $this->_logPort = $logPort;$/;"	v
+_loggers	util/Logger.php	/^	protected static $_loggers = array();$/;"	v
+_master	persistence/DB.php	/^        $this->_master = $master;$/;"	v
+_maxListMap	views/XhtmlParser.php	/^        $this->_maxListMap = array();$/;"	v
+_maxListMap	views/XhtmlParser.php	/^    protected $_maxListMap;$/;"	v
+_menu	views/Skin.php	/^    private $_menu = array();$/;"	v
+_miss	cache/LocalCache.php	/^	private $_miss = 0;$/;"	v
+_mockResultSet	persistence/DB.php	/^        $this->_mockResultSet = array();$/;"	v
+_mode	views/XhtmlParser.php	/^        $this->_mode = XhtmlParser::ALL;$/;"	v
+_mode	views/XhtmlParser.php	/^    protected $_mode;$/;"	v
+_namedMockResultSet	persistence/DB.php	/^        $this->_namedMockResultSet = array();$/;"	v
+_nxtPtr	views/XhtmlParser.php	/^        $this->_nxtPtr = 1;$/;"	v
+_nxtPtr	views/XhtmlParser.php	/^    protected $_nxtPtr;$/;"	v
+_origKey	cache/AbstractCache.php	/^		$this->_origKey = $key;$/;"	v
+_origKey	cache/AbstractCache.php	/^	protected $_origKey;$/;"	v
+_parser	views/XhtmlView.php	/^            $this->_parser = new XhtmlParser();$/;"	v
+_parser	views/XhtmlView.php	/^    private $_parser = null;$/;"	v
+_plugins	views/XhtmlModifiers.php	/^    private static $_plugins = array();$/;"	v
+_profile	persistence/SqlProfile.php	/^		$this->_profile = array();$/;"	v
+_profile	persistence/SqlProfile.php	/^	private $_profile;$/;"	v
+_qtime	persistence/SqlProfile.php	/^		$this->_qtime = array();$/;"	v
+_qtime	persistence/SqlProfile.php	/^	private $_qtime;$/;"	v
+_queries	persistence/SqlProfile.php	/^		$this->_queries = array();$/;"	v
+_queries	persistence/SqlProfile.php	/^	private $_queries;$/;"	v
+_render	views/Skin.php	/^				$this->_render = true;$/;"	v
+_render	views/Skin.php	/^		$this->_render = false;$/;"	v
+_render	views/Skin.php	/^	private $_render = false;$/;"	v
+_resources	persistence/DB.php	/^        $this->_resources = array();$/;"	v
+_resources	persistence/DB.php	/^    protected $_resources;$/;"	v
+_resources	views/XhtmlParser.php	/^        $this->_resources = array();$/;"	v
+_resources	views/XhtmlParser.php	/^    protected $_resources;$/;"	v
+_script	views/Skin.php	/^	protected $_script = '';$/;"	v
+_script	views/Skin.php	/^        $this->_script = $scripts;$/;"	v
+_script	views/XhtmlView.php	/^    private $_script = '';$/;"	v
+_scriptList	views/Skin.php	/^	protected $_scriptList;$/;"	v
+_scriptList	views/Skin.php	/^        $this->_scriptList = array();$/;"	v
+_set	cache/LocalCache.php	/^	private $_set = 0;$/;"	v
+_setupJS	views/Skin.php	/^	protected $_setupJS = '';$/;"	v
+_severity	util/Syslogger.php	/^	protected $_severity = Syslogger::SYSLOG_NOTICE;$/;"	v
+_shareDescription	views/Skin.php	/^	public $_shareDescription = '';$/;"	v
+_shareTitle	views/Skin.php	/^	public $_shareTitle = '';$/;"	v
+_shareTitle	views/Skin.php	/^            $this->_shareTitle = $title;$/;"	v
+_socket	util/Syslogger.php	/^	protected $_socket;$/;"	v
+_socket	util/Syslogger.php	/^        $this->_socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);$/;"	v
+_source	views/XhtmlParser.php	/^            $this->_source = $xhtmlFile;$/;"	v
+_source	views/XhtmlParser.php	/^            $this->_source = VIEW_DIR . '\/' . $xhtmlFile;$/;"	v
+_source	views/XhtmlParser.php	/^    protected $_source;$/;"	v
+_source	views/XhtmlView.php	/^            $this->_source = $viewFile;$/;"	v
+_source	views/XhtmlView.php	/^            $this->_source = VIEW_DIR . '\/' . $viewFile;$/;"	v
+_source	views/XhtmlView.php	/^    private $_source = '';$/;"	v
+_status	util/HttpRequest.php	/^        $this->_status = $status;$/;"	v
+_status	util/HttpRequest.php	/^    protected $_status;$/;"	v
+_style	views/Skin.php	/^	protected $_style;$/;"	v
+_style	views/Skin.php	/^        $this->_style = $styles;$/;"	v
+_style	views/Skin.php	/^        $this->_style = array();$/;"	v
+_templateStack	views/XhtmlParser.php	/^        $this->_templateStack = array();$/;"	v
+_templateStack	views/XhtmlParser.php	/^    protected $_templateStack;$/;"	v
+_time	persistence/SqlProfile.php	/^		$this->_time = 0;$/;"	v
+_time	persistence/SqlProfile.php	/^	private $_time;$/;"	v
+_title	views/Skin.php	/^		$this->_title = $title;$/;"	v
+_title	views/Skin.php	/^	protected $_title = '';$/;"	v
+_transactionName	persistence/DB.php	/^		$this->_transactionName = $transactionName;$/;"	v
+_transactionName	persistence/DB.php	/^        $this->_transactionName = null;$/;"	v
+_transactionName	persistence/DB.php	/^    public $_transactionName;$/;"	v
+_unConstrained	persistence/DB.php	/^            $this->_unConstrained = false;$/;"	v
+_unConstrained	persistence/DB.php	/^        $this->_unConstrained = false;$/;"	v
+_unConstrained	persistence/DB.php	/^        $this->_unConstrained = true;$/;"	v
+_unitTest	persistence/DB.php	/^    static protected $_unitTest = false;$/;"	v
+_useApc	cache/LocalCache.php	/^            $this->_useApc = 1;$/;"	v
+_useApc	cache/LocalCache.php	/^    private $_useApc = false;$/;"	v
+_useEacc	cache/LocalCache.php	/^            $this->_useEacc = 1;$/;"	v
+_useEacc	cache/LocalCache.php	/^    private $_useEacc = false;$/;"	v
+_varStack	views/XhtmlParser.php	/^    protected $_varStack;$/;"	v
+_view	views/ModuleDecorator.php	/^        $this->_view = new XhtmlView("modules-$type.xhtml");$/;"	v
+_view	views/ModuleDecorator.php	/^        $this->_view = null;$/;"	v
+_view	views/ModuleDecorator.php	/^    protected $_view;$/;"	v
+_view	views/Skin.php	/^        $this->_view = new XhtmlView($this->_viewFile);$/;"	v
+_view	views/Skin.php	/^    private $_view;$/;"	v
+_view	views/XhtmlView.php	/^        $this->_view = $viewFile;$/;"	v
+_view	views/XhtmlView.php	/^    private $_view;$/;"	v
+_viewFile	views/Skin.php	/^		$this->_viewFile = $defaultSkin;$/;"	v
+_volatile	util/Logger.php	/^			$this->_volatile = false;$/;"	v
+_volatile	util/Logger.php	/^		$this->_volatile = $volatile;$/;"	v
+_volatile	util/Logger.php	/^	protected $_volatile;$/;"	v
+_waitForLoad	views/Skin.php	/^		$this->_waitForLoad = $wait;$/;"	v
+_waitForLoad	views/Skin.php	/^	private $_waitForLoad = false;$/;"	v
+_written	util/Logger.php	/^    protected static $_written = false;$/;"	v
+_xml	views/XhtmlParser.php	/^    protected $_xml;$/;"	v
+action	persistence/DB.php	/^    public function action()$/;"	f
+add	views/XhtmlView.php	/^    public function add($id, $content, $append = false)$/;"	f
+addAttribute	views/XhtmlParser.php	/^    protected function addAttribute($name, $value, $variable = '')$/;"	f
+addBlocks	util/Coverage.php	/^	public static function addBlocks($className, array $ids)$/;"	f
+addContent	views/XhtmlParser.php	/^    protected function addContent($content, $variable = '')$/;"	f
+addJsCode	views/Skin.php	/^	public function addJsCode($code)$/;"	f
+addOutput	views/XhtmlParser.php	/^    protected function addOutput($key, $output)$/;"	f
+addParameter	views/ModuleDecorator.php	/^    public function addParameter($name, $value, $append = true)$/;"	f
+addPlugin	views/XhtmlModifiers.php	/^    public static function addPlugin($name, $code)$/;"	f
+addRoot	views/XhtmlParser.php	/^	protected function addRoot($name)$/;"	f
+addScript	views/Skin.php	/^	public function addScript($script, $jasonCallback = '')$/;"	f
+addSetupJS	views/Skin.php	/^	public function addSetupJS($code)$/;"	f
+addSkinVariable	views/Skin.php	/^	public function addSkinVariable($varName, $value)$/;"	f
+addStyle	views/Skin.php	/^	public function addStyle($style)$/;"	f
+addTemplate	views/XhtmlParser.php	/^    protected function addTemplate(array $elm)$/;"	f
+appendContent	views/ModuleDecorator.php	/^    public function appendContent($content)$/;"	f
+appendScript	views/XhtmlView.php	/^    public function appendScript($script)$/;"	f
+appendTemplate	views/XhtmlParser.php	/^    protected function appendTemplate(array $elm, $markup)$/;"	f
+attrName	views/XhtmlParser.php	/^        $attrName = substr($attrName, strpos($attrName, ':')+1);$/;"	v
+attribute	views/XhtmlParser.php	/^                    $attribute = strtolower($attribute);$/;"	v
+audit	util/Coverage.php	/^	public static function audit($id, $value = '')$/;"	f
+auth	persistence/DB.php	/^        	$auth = $GLOBALS['database-auth'][$GLOBALS['database-map'][$databaseName].$suffix];$/;"	v
+base	views/XhtmlParser.php	/^		$base = (isset($parts[1]))? $parts[count($parts)-2] : $var;$/;"	v
+base	views/XhtmlParser.php	/^        $base = (isset($this->_Sroots[$parts[0]]) || in_array($parts[0], $this->_Sroots)) ? "\\$item_{$parts[0]}" : "\\$this->root['{$parts[0]}']";$/;"	v
+beginTransaction	persistence/DB.php	/^    public function beginTransaction($transactionName = null)$/;"	f
+bpos	views/XhtmlParser.php	/^			$bpos = strrpos($varName, ">");$/;"	v
+bt	util/Logger.php	/^		$bt = debug_backtrace();$/;"	v
+bt	util/Logger.php	/^                            $bt = $this->getBtCaller();$/;"	v
+bt	util/Logger.php	/^                        $bt = debug_backtrace();$/;"	v
+bt	util/Logger.php	/^            $bt = false;$/;"	v
+cache	cache/NetworkCache.php	/^        $cache = new Memcache();$/;"	v
+cacheable	util/Logger.php	/^                        $cacheable = false;$/;"	v
+cacheable	util/Logger.php	/^            $cacheable = true;$/;"	v
+class	views/ModuleDecorator.php	/^				$class = $set['align'];$/;"	v
+class	views/ModuleDecorator.php	/^		$class = '';$/;"	v
+clearContent	views/ModuleDecorator.php	/^	public function clearContent()$/;"	f
+clearMockResultSets	persistence/DB.php	/^    public function clearMockResultSets()$/;"	f
+clearMockUpdates	persistence/DB.php	/^    public static function clearMockUpdates()$/;"	f
+closeLevel	views/XhtmlParser.php	/^                $closeLevel = $level;$/;"	v
+closeLevel	views/XhtmlParser.php	/^        $closeLevel = '';$/;"	v
+closeLevel	views/XhtmlParser.php	/^        $closeLevel = 0;$/;"	v
+closeTag	views/XhtmlParser.php	/^        $closeTag = '';$/;"	v
+closeure	views/XhtmlParser.php	/^        $closeure = array();$/;"	v
+code	views/XhtmlParser.php	/^        $code = "\\$msg = Text::get('{$p[2]}', '{$p[1]}');\\n";$/;"	v
+column	persistence/DB.php	/^                $column = $match[1];$/;"	v
+columnNames	persistence/DB.php	/^	    $columnNames = join(', ', array_keys($data));$/;"	v
+commitTransaction	persistence/DB.php	/^    public function commitTransaction()$/;"	f
+connectStorage	util/Logger.php	/^	private function connectStorage(): void$/;"	f
+connection	persistence/DB.php	/^			$connection = self::$_instance[$databaseName . $suffix] = new DB($handle, $master);$/;"	v
+connection	persistence/DB.php	/^			$connection = self::$_instance[$databaseName . $suffix] = new DB(null, $master);$/;"	v
+constrainEntities	persistence/DB.php	/^    public function constrainEntities()$/;"	f
+content	util/HttpRequest.php	/^		$content = '';$/;"	v
+content	util/HttpRequest.php	/^            $content = trim($content, '&');$/;"	v
+content	views/Skin.php	/^	public $content = '';$/;"	v
+createEntity	persistence/DB.php	/^    protected function createEntity($className, array $row)$/;"	f
+createKey	cache/AbstractCache.php	/^	protected function createKey(string $key): string$/;"	f
+createQuery	persistence/DB.php	/^    protected function createQuery($data, $type = 0)$/;"	f
+ctr	persistence/DB.php	/^        	$ctr = $success = 0;$/;"	v
+ctr	views/XhtmlParser.php	/^        $ctr = 0;$/;"	v
+ctx	util/HttpRequest.php	/^		$ctx = stream_context_create();\/\/$params);$/;"	v
+data	util/Logger.php	/^					$data = $this->syslogize(substr($message[2], 0, 990));$/;"	v
+data	views/XhtmlModifiers.php	/^		$data = $modType;$/;"	v
+data	views/XhtmlModifiers.php	/^                $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8', false);$/;"	v
+data	views/XhtmlView.php	/^        $data = '1 day ago'; $/;"	v
+data	views/XhtmlView.php	/^        $data = '1 hour ago'; $/;"	v
+data	views/XhtmlView.php	/^        $data = '1 minute ago';$/;"	v
+data	views/XhtmlView.php	/^        $data = intval($diff \/ 3600) . ' hours ago'; $/;"	v
+data	views/XhtmlView.php	/^        $data = intval($diff \/ 60) . ' minutes ago'; $/;"	v
+data	views/XhtmlView.php	/^        $data = intval($diff \/ 86400) . ' days ago'; $/;"	v
+db	persistence/SqlProfile.php	/^		$db = DB::getConnection('Profile', true);$/;"	v
+db	util/Coverage.php	/^		$db = DB::getConnection('Profile', true);$/;"	v
+debug	util/Logger.php	/^	public function debug(string $message): bool$/;"	f
+decorate	views/ModuleDecorator.php	/^	public function decorate($module, $newrow = false)$/;"	f
+decorateSimple	views/ModuleDecorator.php	/^    public function decorateSimple($content, array $parameters)$/;"	f
+delete	cache/AbstractCache.php	/^    public function delete(?string $key = null): ?Cache;$/;"	f
+delete	cache/LocalCache.php	/^    public function delete(? string $key = null): ?LocalCache$/;"	f
+delete	cache/NetworkCache.php	/^	public function delete($throwOnFail = false)$/;"	f
+delete	cache/NetworkLockCache.php	/^    public function delete($throwOnFail = false) {$/;"	f
+delete	persistence/DB.php	/^	public function delete($logName, $tableName, array $where)$/;"	f
+deleteStmt	persistence/DB.php	/^		$deleteStmt = "DELETE FROM $tableName ";$/;"	v
+diff	views/XhtmlView.php	/^    $diff = time() - $time;$/;"	v
+dispatch	util/Logger.php	/^	private function dispatch(int $level, string $message): void$/;"	f
+doQuery	persistence/DB.php	/^    protected function doQuery($query, $name)$/;"	f
+doRequest	util/HttpRequest.php	/^	public static function doRequest($type, $url, $data, $timeout = 5, array $optional_headers = null, $return_object=false)$/;"	f
+doc	views/Skin.php	/^		$doc = '';$/;"	v
+doc	views/Skin.php	/^            $doc = '<?xml version="1.0" encoding="UTF-8"?>$/;"	v
+doc	views/Skin.php	/^        $doc = $this->renderHead(true, $returnResult);$/;"	v
+enableErrorHandler	util/Logger.php	/^    public static function enableErrorHandler(bool $enable = true)$/;"	f
+encode	persistence/DB.php	/^	public static function encode($input)$/;"	f
+end	persistence/DB.php	/^        $end = microtime(true);$/;"	v
+end	views/XhtmlModifiers.php	/^				$end = array_pop($p);$/;"	v
+end	views/XhtmlModifiers.php	/^				$end = substr($end, 0, $epos);$/;"	v
+endLvl	views/XhtmlParser.php	/^        $endLvl = (count($this->_StemplateEnd) > 0) ? end($this->_StemplateEnd) : 0;$/;"	v
+endsWith	views/XhtmlParser.php	/^	protected function endsWith($haystack, $needle)$/;"	f
+entity	persistence/DB.php	/^        $entity = new $className(true, $row, true);$/;"	v
+entityArray	persistence/DB.php	/^        $entityArray = array();$/;"	v
+error	util/Logger.php	/^	public function error(string $message): bool$/;"	f
+example	views/example/example.php	/^class example$/;"	c
+execDelayed	persistence/DB.php	/^    function execDelayed()$/;"	f
+factoids	views/example/example.php	/^$factoids = array($/;"	v
+fatal	util/Logger.php	/^	public function fatal(string $message): bool$/;"	f
+findEntities	persistence/DB.php	/^    public function findEntities($logName, $className, $selectStmt, array $where = null, $predicate = null)$/;"	f
+flush	cache/NetworkCache.php	/^    public function flush()$/;"	f
+fmt	util/Logger.php	/^        $fmt = $this->_formatStr[$levelNum];$/;"	v
+foo	views/ModuleDecorator.php	/^        $foo = $viewWrap->render('body', 'basic');$/;"	v
+forceCompile	views/XhtmlView.php	/^    public function forceCompile()$/;"	f
+forceMaster	persistence/DB.php	/^	public static function forceMaster()$/;"	f
+forceOutput	views/XhtmlParser.php	/^    protected function forceOutput($key, $output)$/;"	f
+format	util/Logger.php	/^			$format = $GLOBALS['LOGFORMAT'];$/;"	v
+format	util/Logger.php	/^			$format = $GLOBALS['LOGFORMAT-' . $name];$/;"	v
+format	util/Logger.php	/^			$format = '[%w]: [%I:%r:%n:%p]: %m';$/;"	v
+formatBT	util/Logger.php	/^	private function formatBT(): string$/;"	f
+fp	util/HttpRequest.php	/^		$fp = stream_socket_client($parts[0], $err, $errstr, $timeout, STREAM_CLIENT_CONNECT, $ctx);$/;"	v
+get	cache/AbstractCache.php	/^    public function get(?string $key): mixed;$/;"	f
+get	cache/LocalCache.php	/^    public function get(?string $key): mixed$/;"	f
+get	cache/NetworkCache.php	/^	public function get($throws = false, $flags = false)$/;"	f
+get	cache/NetworkLockCache.php	/^    public function get($throws = false, $flags = false) {$/;"	f
+get	views/XhtmlView.php	/^    public function get($id)$/;"	f
+getAffectedRows	persistence/DB.php	/^	public function getAffectedRows()$/;"	f
+getAttribute	views/XhtmlParser.php	/^    private function getAttribute($elm, $attributeName)$/;"	f
+getBtCaller	util/Logger.php	/^	private static function getBtCaller(): string$/;"	f
+getConnection	persistence/DB.php	/^    public static function getConnection($databaseName, $master)$/;"	f
+getData	util/HttpRequest.php	/^	public static function getData($url, $data, $timeout = 5, $optional_headers = null)$/;"	f
+getData	util/HttpRequest.php	/^    public function getData(){$/;"	f
+getDescription	views/Skin.php	/^    public function getDescription()$/;"	f
+getEditLink	views/ModuleDecorator.php	/^    public function getEditLink();$/;"	f
+getEntries	util/Logger.php	/^	public function getEntries(): array$/;"	f
+getFinIfMarkup	views/XhtmlParser.php	/^    protected function getFinIfMarkup($root, $name, $parentName)$/;"	f
+getFinListMarkup	views/XhtmlParser.php	/^	protected function getFinListMarkup($root, $name)$/;"	f
+getFriendlyRoot	views/XhtmlParser.php	/^	protected function getFriendlyRoot($i)$/;"	f
+getHelp	views/ModuleDecorator.php	/^    public function getHelp();$/;"	f
+getInfo	util/HttpRequest.php	/^    public function getInfo(){$/;"	f
+getInstance	cache/AbstractCache.php	/^	public static function getInstance(): Cache;$/;"	f
+getInstance	cache/LocalCache.php	/^    public static function getInstance(): Cache$/;"	f
+getInstance	cache/NetworkCache.php	/^	public static function getInstance(): NetworkCache$/;"	f
+getInstance	cache/NetworkLockCache.php	/^	public static function getInstance(): NetworkLockCache$/;"	f
+getInstance	persistence/SqlProfile.php	/^	public static function getInstance()$/;"	f
+getInstance	views/Skin.php	/^	public static function getInstance($defaultSkin = 'defaultSkin.xhtml')$/;"	f
+getLastError	persistence/DB.php	/^    public function getLastError()$/;"	f
+getLastErrorNo	persistence/DB.php	/^    public function getLastErrorNo()$/;"	f
+getLastInsertId	persistence/DB.php	/^	public function getLastInsertId()$/;"	f
+getLevel	util/Logger.php	/^	public function getLevel(): int$/;"	f
+getLevel	views/XhtmlParser.php	/^    private function getLevel($elm)$/;"	f
+getLogger	util/Logger.php	/^	public static function getLogger(string $name, bool $volatile = true)$/;"	f
+getMarkup	views/XhtmlParser.php	/^    public function getMarkup()$/;"	f
+getOutput	views/XhtmlParser.php	/^    protected function getOutput($key)$/;"	f
+getParser	views/XhtmlView.php	/^	public function getParser()$/;"	f
+getResource	persistence/DB.php	/^	public function getResource()$/;"	f
+getResponse	util/HttpRequest.php	/^	public static function getResponse($url, $data, $timeout = 5, $optional_headers = null)$/;"	f
+getSimpleRef	views/XhtmlParser.php	/^    protected function getSimpleRef($name) {$/;"	f
+getSomething	views/example/example.php	/^    public function getSomething()$/;"	f
+getStartIfMarkup	views/XhtmlParser.php	/^    protected function getStartIfMarkup($root, $name, $parentName, $negate)$/;"	f
+getStartListMarkup	views/XhtmlParser.php	/^	protected function getStartListMarkup($root, $name, $parentName)$/;"	f
+getState	views/XhtmlParser.php	/^    public function getState()$/;"	f
+getStats	cache/LocalCache.php	/^	public function getStats(): array$/;"	f
+getStatus	util/HttpRequest.php	/^    public function getStatus(){$/;"	f
+getTag	views/XhtmlParser.php	/^    protected function getTag()$/;"	f
+getTemplateMarkup	views/XhtmlParser.php	/^	protected function getTemplateMarkup($name)$/;"	f
+getTitle	views/Skin.php	/^    public function getTitle()$/;"	f
+getVarMarkup	views/XhtmlParser.php	/^	protected function getVarMarkup($root, $var, $complete = false)$/;"	f
+getVarName	views/XhtmlParser.php	/^	protected function getVarName($i, $var)$/;"	f
+getView	views/XhtmlView.php	/^	public static function getView($viewFile)$/;"	f
+getWebLog	util/Logger.php	/^	public static function getWebLog(): string$/;"	f
+getstats	cache/NetworkCache.php	/^	public function getstats()$/;"	f
+handle	persistence/DB.php	/^			$handle = mysqli_init();$/;"	v
+handleLanguageResource	views/XhtmlParser.php	/^    protected function handleLanguageResource($baseName, $resourceName)$/;"	f
+handler	views/ModuleDecorator.php	/^            $handler = $module->getHandler();$/;"	v
+handler	views/ModuleDecorator.php	/^        $handler = null;$/;"	v
+host	util/Syslogger.php	/^            $host = $_SERVER['SERVER_NAME'];$/;"	v
+host	util/Syslogger.php	/^            $host = 'unknown';$/;"	v
+host	util/Syslogger.php	/^            $host = gethostname();$/;"	v
+i	persistence/DB.php	/^		$i = 0;$/;"	v
+id	persistence/DB.php	/^        $id = mysqli_insert_id($this->_connection);$/;"	v
+idx	views/XhtmlParser.php	/^            $idx = array_pop($this->_SidxStack);$/;"	v
+inflateVariable	views/XhtmlParser.php	/^    protected function inflateVariable($variable)$/;"	f
+info	util/HttpRequest.php	/^		$info = stream_get_meta_data($fp);$/;"	v
+info	util/Logger.php	/^	public function info(string $message): bool$/;"	f
+inner	views/XhtmlParser.php	/^				$inner = $this->SrecurseBuild($varName, false);$/;"	v
+input	persistence/DB.php	/^			$input = stripslashes ($input);$/;"	v
+insert	persistence/DB.php	/^    public function insert($logName, $table, array $data, $force = false)$/;"	f
+insert	persistence/SqlProfile.php	/^		$insert = array('ip' => "!inet_aton('{$_SERVER['REMOTE_ADDR']}')",$/;"	v
+iresult	persistence/DB.php	/^            $iresult = $this->doQuery($query, $logName);$/;"	v
+iresult	persistence/DB.php	/^        $iresult = mysqli_query($this->_connection, "COMMIT");$/;"	v
+iresult	persistence/DB.php	/^        $iresult = mysqli_query($this->_connection, "START TRANSACTION");$/;"	v
+iresult	persistence/DB.php	/^        $iresult = mysqli_query($this->_connection, 'ROLLBACK');$/;"	v
+iresult	persistence/DB.php	/^        $iresult = mysqli_query($this->_connection, 'set transaction isolation level read uncommitted'); $/;"	v
+isCdata	views/XhtmlParser.php	/^	private function isCdata(array $tag)$/;"	f
+isCloseTag	views/XhtmlParser.php	/^    private function isCloseTag(array $tag)$/;"	f
+isCompleteTag	views/XhtmlParser.php	/^    private function isCompleteTag(array $tag)$/;"	f
+isConditional	views/XhtmlParser.php	/^	private function isConditional(array $tag)$/;"	f
+isConnected	cache/NetworkCache.php	/^	public function isConnected()$/;"	f
+isIgnoredTag	views/XhtmlParser.php	/^    private function isIgnoredTag(array $tag)$/;"	f
+isList	views/XhtmlParser.php	/^	private function isList(array $tag)$/;"	f
+isOpenTag	views/XhtmlParser.php	/^    private function isOpenTag(array $tag)$/;"	f
+key	views/XhtmlParser.php	/^        $key = end($parts);$/;"	v
+l	util/Syslogger.php	/^$l = new Syslogger("localhost", 514);$/;"	v
+last	views/XhtmlParser.php	/^		$last = strrpos($var, '.');$/;"	v
+lcstat	persistence/SqlProfile.php	/^		$lcstat = LocalCache::getInstance()->getStats();$/;"	v
+level	views/XhtmlParser.php	/^            $level = $this->getLevel($elm);$/;"	v
+line	util/Logger.php	/^			$line = $bt[$i];$/;"	v
+line	util/Logger.php	/^            $line = '';$/;"	v
+line	util/Logger.php	/^            $line = self::$_formats[$fmt];$/;"	v
+listName	views/XhtmlParser.php	/^			$listName = substr ($listName, 3);$/;"	v
+listName	views/XhtmlParser.php	/^			$listName = substr ($listName, 5);$/;"	v
+listName	views/XhtmlParser.php	/^			$listName = substr ($listName, 6);$/;"	v
+listName	views/XhtmlParser.php	/^		$listName = preg_replace('\/[^a-zA-Z0-9]\/', '_', $listName);$/;"	v
+ln	views/XhtmlView.php	/^        $ln = Text::getLanguage();$/;"	v
+lockNum	cache/NetworkLockCache.php	/^            $lockNum = $this->_cache->increment($this->_key . '-lock');$/;"	v
+log	cache/AbstractCache.php	/^        $log = Logger::getLogger('exception');$/;"	v
+log	cache/NetworkCache.php	/^        $log = Logger::getLogger('cache');$/;"	v
+log	util/HttpRequest.php	/^		$log = Logger::getLogger('HttpRequest');$/;"	v
+log	util/Logger.php	/^		$log = '';$/;"	v
+log	views/XhtmlView.php	/^        $log = Logger::getLogger('init');$/;"	v
+logProfile	persistence/SqlProfile.php	/^	public function logProfile()$/;"	f
+logo	views/Skin.php	/^		$logo = $logos[rand(0, count($logos)-1)]; $/;"	v
+logos	views/Skin.php	/^        $logos = array();$/;"	v
+makeName	views/XhtmlParser.php	/^	protected function makeName($listName)$/;"	f
+markup	views/XhtmlParser.php	/^                $markup = '<\/' . strtolower($this->_ScurrentTag['tag']) . '>';$/;"	v
+markup	views/XhtmlParser.php	/^            $markup =  '<' . strtolower($this->_ScurrentTag['tag']);$/;"	v
+markup	views/XhtmlParser.php	/^            $markup = preg_replace('\/(href\\s*=\\s*[\\'"])\\\/\/', '${1}http:\/\/'. DOMAIN .'\/', $markup);$/;"	v
+markup	views/XhtmlParser.php	/^            $markup = preg_replace('\/(src\\s*=\\s*[\\'"])\\\/\/', '${1}http:\/\/'. STATICDOMAIN . '\/', $markup);$/;"	v
+markup	views/XhtmlParser.php	/^        $markup = '';$/;"	v
+master	persistence/DB.php	/^			$master = true;$/;"	v
+message	util/Logger.php	/^				$message = array_shift(Logger::$_entries);$/;"	v
+message	util/Logger.php	/^		$message = "$errstr on $errfile:$errline";$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'debug', Logger::DEBUG);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'error', Logger::ERROR);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'fatal', Logger::FATAL);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'info', Logger::INFO);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'security', Logger::SECURITY);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'trace', Logger::TRACE);$/;"	v
+message	util/Logger.php	/^		$message = $this->msgFormat($message, 'warn', Logger::WARN);$/;"	v
+message	util/Syslogger.php	/^        $message = $this->_header . substr($message, 0, 990);$/;"	v
+meta	persistence/DB.php	/^            $meta = '';$/;"	v
+method	views/XhtmlParser.php	/^        $method = ($last) ? substr($var, $last) : $var;$/;"	v
+method	views/XhtmlParser.php	/^        $method = end($parts);$/;"	v
+method	views/example/example.php	/^    public function method()$/;"	f
+mod	views/XhtmlModifiers.php	/^    protected static function mod($modType, $v)$/;"	f
+modPos	views/XhtmlParser.php	/^			$modPos = explode('|', $varName);$/;"	v
+msg	views/XhtmlParser.php	/^                $msg = $this->inflateVariable($msg);$/;"	v
+msg	views/XhtmlParser.php	/^            $msg = Text::get($p[1], $p[0]);$/;"	v
+msg	views/XhtmlParser.php	/^        $msg = Text::get($p[1], $p[0]);$/;"	v
+msgFormat	util/Logger.php	/^	private function msgFormat(string $message, int $level, int $levelNum): string$/;"	f
+name	util/Logger.php	/^        $name = strtolower($name);$/;"	v
+name	views/XhtmlParser.php	/^			$name = $this->getFriendlyRoot($i);$/;"	v
+name	views/XhtmlParser.php	/^			$name = 'href';$/;"	v
+name	views/XhtmlParser.php	/^			$name = 'src';$/;"	v
+name	views/XhtmlParser.php	/^		$name = $this->_Sroots[$i];$/;"	v
+name	views/XhtmlParser.php	/^		$name = preg_replace('\/[^a-zA-Z0-9]\/', '_', $name);$/;"	v
+name	views/XhtmlParser.php	/^                $name = substr($parts[$i], 1, strlen($parts[$i])-2);$/;"	v
+name	views/XhtmlParser.php	/^            $name = $root;$/;"	v
+name	views/XhtmlParser.php	/^            $name = substr($root, 3);$/;"	v
+name	views/XhtmlParser.php	/^            $name = substr($root, 5);$/;"	v
+name	views/XhtmlParser.php	/^            $name = substr($root, 6);$/;"	v
+negate	views/XhtmlParser.php	/^				$negate = (strstr($var, 'IFNOT:') === false) ? false : true;$/;"	v
+obj	util/HttpRequest.php	/^            $obj = new HttpResponse(true,$info,$response);$/;"	v
+op	persistence/DB.php	/^                $op = $match[2];$/;"	v
+op	persistence/DB.php	/^            $op = '=';$/;"	v
+out	views/XhtmlModifiers.php	/^			$out = sprintf("$v", $p[0].$suffix);$/;"	v
+out	views/XhtmlParser.php	/^					$out = preg_replace('\/this->root\/', "item_{$root}", $out);$/;"	v
+out	views/XhtmlParser.php	/^		$out = "\/\/ FIN PARENT: $root, $name, $parentName, $short\\n";$/;"	v
+out	views/XhtmlParser.php	/^		$out = "\\$templateOut_{$short} = '';\\n";$/;"	v
+out	views/XhtmlParser.php	/^        $out = "\/\/ PARENT: $root, $name, $parentName\\n";$/;"	v
+out	views/XhtmlParser.php	/^        $out = '';$/;"	v
+out	views/XhtmlParser.php	/^$out = "\\$templateOut_{$short} .= vsprintf(\\$template_{$short}, \\$data_{$short});\\n";$/;"	v
+output	util/Logger.php	/^		$output = '<div id="logger">';$/;"	v
+output	views/XhtmlParser.php	/^        $output = end($parts);$/;"	v
+p	views/XhtmlModifiers.php	/^		$p = explode('|', $code);$/;"	v
+p	views/XhtmlParser.php	/^            $p = explode('.', $value);$/;"	v
+p	views/XhtmlParser.php	/^        $p = explode('.', $resourceName);$/;"	v
+p	views/XhtmlParser.php	/^        $p = explode('\/', $xhtmlFile);$/;"	v
+panel	views/ModuleDecorator.php	/^            $panel = 'edit';$/;"	v
+panel	views/ModuleDecorator.php	/^        $panel = 'basic';$/;"	v
+paramCount	persistence/DB.php	/^		$paramCount = 0;$/;"	v
+params	util/HttpRequest.php	/^		$params = array('http' => array($/;"	v
+parse	views/XhtmlModifiers.php	/^	public static function parse($code, $root = null)$/;"	f
+parse	views/XhtmlParser.php	/^    public function parse($xhtmlFile, $outFile, $rootTag = "BODY", $panel = null)$/;"	f
+parseStmt	persistence/DB.php	/^    protected function parseStmt($stmt, $params)$/;"	f
+parser	views/XhtmlParser.php	/^        $parser = xml_parser_create();$/;"	v
+parts	util/HttpRequest.php	/^		$parts = explode('!', $url);$/;"	v
+parts	views/XhtmlModifiers.php	/^		$parts = explode(":", $modType);$/;"	v
+parts	views/XhtmlParser.php	/^				$parts = explode('|', $var);$/;"	v
+parts	views/XhtmlParser.php	/^			$parts = explode("|", $var);$/;"	v
+parts	views/XhtmlParser.php	/^		$parts = explode('.', $var);$/;"	v
+parts	views/XhtmlParser.php	/^        $parts = explode('.', $name);$/;"	v
+parts	views/XhtmlParser.php	/^        $parts = explode(':', $key);$/;"	v
+parts	views/XhtmlParser.php	/^        $parts = explode(':', $output);$/;"	v
+parts	views/XhtmlParser.php	/^        $parts = preg_split('\/(\\{.*?\\})\/', $variable, -1, PREG_SPLIT_DELIM_CAPTURE);$/;"	v
+path	views/XhtmlParser.php	/^        $path = join('\/', $p);$/;"	v
+paths	util/Logger.php	/^                        $paths = explode('\/', $bt['file']);$/;"	v
+popMockResultSet	persistence/DB.php	/^    protected function popMockResultSet($namedQuery = null)$/;"	f
+popMockUpdate	persistence/DB.php	/^    public static function popMockUpdate()$/;"	f
+pos	views/XhtmlParser.php	/^		$pos = array_search($root, $this->_Sroots);$/;"	v
+pos	views/XhtmlParser.php	/^                $pos = array_search($root, $this->_Sroots);$/;"	v
+pos	views/XhtmlParser.php	/^            $pos = strpos($varName, ']->');$/;"	v
+postData	util/HttpRequest.php	/^	public static function postData($url, $data, $timeout = 5, $optional_headers = null)$/;"	f
+postResponse	util/HttpRequest.php	/^	public static function postResponse($url, $data, $timeout = 5, $optional_headers = null)$/;"	f
+profile	persistence/DB.php	/^            $profile = mysqli_query($this->_connection, "show session status where (Variable_name like 'Select%'  or Variable_name  like 'Sort%' or Variable_name like 'Created%') and Value > 0 -- profile");$/;"	v
+profileQuery	persistence/SqlProfile.php	/^	public function profileQuery($sql, $time, $profile)$/;"	f
+pushMockResultSet	persistence/DB.php	/^    public function pushMockResultSet(array $result = null, $namedQuery = null)$/;"	f
+pushMockUpdate	persistence/DB.php	/^    protected function pushMockUpdate($type, array $update = null)$/;"	f
+query	persistence/DB.php	/^        $query = "INSERT INTO $table  ( " . $columnNames .$/;"	v
+query	persistence/DB.php	/^        $query = "UPDATE $table SET " . $this->createQuery($data, 2) . ' WHERE ' . $this->createQuery($where, 0);$/;"	v
+query	persistence/DB.php	/^        $query = $this->parseStmt($stmt, $params);$/;"	v
+query	persistence/DB.php	/^        $query = '';$/;"	v
+queryResource	persistence/DB.php	/^            $queryResource = $this->doQuery($selectStmt, $logName);$/;"	v
+queryText	persistence/SqlProfile.php	/^		$queryText = '';$/;"	v
+ref	cache/NetworkCache.php	/^        $ref = new NetworkCache();$/;"	v
+ref	cache/NetworkLockCache.php	/^        $ref = new NetworkLockCache();$/;"	v
+ref	persistence/SqlProfile.php	/^		$ref = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : '';$/;"	v
+removeScript	views/Skin.php	/^    public function removeScript($script)$/;"	f
+render	views/Skin.php	/^	public function render($returnResult = false): string$/;"	f
+render	views/View.php	/^    public function render()$/;"	f
+render	views/XhtmlView.php	/^    public function render($elm = "body", $panel = null)$/;"	f
+renderDecorated	views/ModuleDecorator.php	/^    public function renderDecorated(ModuleDecorator $decorator);$/;"	f
+renderHead	views/Skin.php	/^	public function renderHead(bool $force = false, bool $returnResult = false): string$/;"	f
+rendered	views/ModuleDecorator.php	/^        $rendered = $this->_view->render('body', $panel);$/;"	v
+rendered	views/XhtmlView.php	/^        $rendered = VIEW_CACHE_DIR . "\/" . $this->_view . "-{$elm}-{$panel}-$ln-$ver";$/;"	v
+replaceContent	views/XhtmlParser.php	/^    protected function replaceContent($content, $variable)$/;"	f
+req	util/HttpRequest.php	/^		$req = "$type {$url} HTTP\/1.1\\r\\nHost: {$optional_headers['host']}\\r\\nUser-Agent: {$optional_headers['ua']}\\r\\nConnection: close\\r\\n\\r\\n";$/;"	v
+requireFullClose	views/XhtmlParser.php	/^    private function requireFullClose(array $tag)$/;"	f
+res	views/XhtmlParser.php	/^				$res = str_replace('.', '_', $res);$/;"	v
+res	views/XhtmlParser.php	/^			$res = $this->_Smap[$root];$/;"	v
+res	views/XhtmlParser.php	/^		$res = ($root != 'root') ? $res = "\\$data{$pos}['$var']" : "\\$this->root['$base']";$/;"	v
+res	views/XhtmlParser.php	/^        $res = "sprintf('$text', $vars);";$/;"	v
+res	views/XhtmlParser.php	/^        $res = '';$/;"	v
+resource	persistence/DB.php	/^            $resource = $this->doQuery($selectStmt, $logName);$/;"	v
+response	util/HttpRequest.php	/^		$response = @stream_get_contents($fp);$/;"	v
+result	cache/LocalCache.php	/^			$result = apc_delete($this->_key);$/;"	v
+result	cache/LocalCache.php	/^			$result = self::CACHE_MISS;$/;"	v
+result	cache/LocalCache.php	/^		$result = null;$/;"	v
+result	cache/LocalCache.php	/^                $result = $result->getArrayCopy();$/;"	v
+result	cache/LocalCache.php	/^            $result = apc_fetch($this->_key, $success);$/;"	v
+result	cache/LocalCache.php	/^            $result = eaccelerator_get($this->_key);$/;"	v
+result	cache/LocalCache.php	/^            $result = eaccelerator_rm($this->_key);$/;"	v
+result	cache/LocalCache.php	/^        $result = $success = false;$/;"	v
+result	cache/NetworkCache.php	/^			$result = $this->_cache->delete($this->_key);$/;"	v
+result	cache/NetworkCache.php	/^			$result = $this->_cache->set($this->_key, $value, $flags, $expire);$/;"	v
+result	cache/NetworkCache.php	/^		$result = $this->_cache->get($this->_key);$/;"	v
+result	cache/NetworkLockCache.php	/^        $result = parent::get($throws, $flags);$/;"	v
+result	persistence/DB.php	/^		$result = $this->doQuery($deleteStmt, $logName);$/;"	v
+result	persistence/DB.php	/^            $result = array_pop($this->_mockResultSet);$/;"	v
+result	persistence/DB.php	/^            $result = array_pop($this->_namedMockResultSet[$namedQuery]);$/;"	v
+result	persistence/DB.php	/^        $result = $this->doQuery($query, $logName);$/;"	v
+result	persistence/DB.php	/^        $result = $this->doQuery($query, $logName, $force);$/;"	v
+result	persistence/DB.php	/^        $result = $this->doQuery($stmt, $logName);$/;"	v
+result	persistence/DB.php	/^        $result = array_pop(self::$_dbUpdates);$/;"	v
+result	persistence/DB.php	/^        $result = new ArrayList($className);$/;"	v
+result	util/HttpRequest.php	/^		$result = stream_context_set_option($ctx, 'ssl', 'allow_self_signed', true);$/;"	v
+result	views/View.php	/^		$result = ob_get_contents();$/;"	v
+result	views/XhtmlModifiers.php	/^						$result = "(".self::$_baseText." %% {$matches[1]} == 1) ? '{$matches[2]}' : ''";$/;"	v
+result	views/XhtmlModifiers.php	/^						$result = "(\\$i_{$matches[1]} == (\\$sz_{$matches[1]} - 1)) ? '{$matches[2]}' : ''";$/;"	v
+result	views/XhtmlModifiers.php	/^						$result = "(\\$i_{$matches[1]} == 0) ? '{$matches[2]}' : ''";$/;"	v
+result	views/XhtmlModifiers.php	/^                    $result = vsprintf(self::$_plugins[$modType], $v);$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "$v . '{$parts[1]}'";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "'{$parts[1]}' . $v";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "($v + {$parts[1]})";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "($v - {$parts[1]})";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "($v > 1) ? '$v {$parts[1]}s' : '$v {$parts[1]}'";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "htmlspecialchars($v, ENT_QUOTES, 'UTF-8', false)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "intval($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "str_replace(array('&amp;', \\"'\\", '&#039;', '&apos;'), array('&', '', '', ''), $v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "strip_tags($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "strtolower($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "strtoupper($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "timeAgo($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "trim($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "ucfirst($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "ucwords($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^                $result = "urlencode($v)";$/;"	v
+result	views/XhtmlModifiers.php	/^        $result = $v;$/;"	v
+result	views/XhtmlParser.php	/^        $result = $this->_Sout[$key];$/;"	v
+result	views/XhtmlParser.php	/^        $result = array();$/;"	v
+result	views/XhtmlView.php	/^        $result = '<pre>no compiled view found, or compiler error ' . VIEW_CACHE_DIR . '\/' . $this->_view . "<\/pre>";$/;"	v
+resultArray	persistence/DB.php	/^            $resultArray = array ();$/;"	v
+resultArray	persistence/DB.php	/^        $resultArray = $this->popMockResultSet();$/;"	v
+returnRender	views/View.php	/^	public function returnRender()$/;"	f
+rollBackTransaction	persistence/DB.php	/^    public function rollBackTransaction()$/;"	f
+root	views/XhtmlParser.php	/^				$root = $parts[$i];$/;"	v
+root	views/XhtmlParser.php	/^			$root = $this->_Sroots[$this->_StemplateIndex];$/;"	v
+root	views/XhtmlParser.php	/^			$root = $this->makeName($root);$/;"	v
+root	views/XhtmlParser.php	/^			$root = 'root';$/;"	v
+root	views/XhtmlParser.php	/^			$root = end($this->_Sroots);$/;"	v
+root	views/XhtmlParser.php	/^		$root = 'root';\/\/($last) ? substr($var, 0, $last) : 'root';$/;"	v
+root	views/XhtmlParser.php	/^		$root = ($last) ? substr($var, 0, $last) : 'root';$/;"	v
+root	views/XhtmlParser.php	/^	$root = $this->_Sout[$short];$/;"	v
+root	views/XhtmlParser.php	/^            $root = preg_replace('\/[^a-zA-Z0-9]\/', '_', $root);$/;"	v
+root	views/XhtmlParser.php	/^$root = $this->makeName($root);$/;"	v
+root	views/XhtmlView.php	/^        $this->root = array();$/;"	v
+root	views/XhtmlView.php	/^    private $root;$/;"	v
+rows	persistence/DB.php	/^            $rows = array();$/;"	v
+rows	persistence/DB.php	/^        $rows = $this->popMockResultSet();$/;"	v
+script	views/Skin.php	/^                $script = 'http:\/\/' . DOMAIN . $script;$/;"	v
+script	views/Skin.php	/^                $script = 'http:\/\/' . STATICDOMAIN . $script;$/;"	v
+section	views/XhtmlParser.php	/^        $section = 0;$/;"	v
+security	util/Logger.php	/^	public function security(string $message): bool$/;"	f
+select	persistence/DB.php	/^    public function select($logName, $selectStmt, array $where = null, $predicate = '')$/;"	f
+selectStmt	persistence/DB.php	/^	function selectStmt($logName, $stmt, array $params = null)$/;"	f
+send	util/Syslogger.php	/^	public function send(string $message): void$/;"	f
+server	cache/NetworkCache.php	/^            $server = 'MEMCACHE_SERVER'.$S;$/;"	v
+serverCount	cache/NetworkCache.php	/^        $serverCount = 0;$/;"	v
+set	cache/AbstractCache.php	/^    public function set(mixed $value, int $expire = 3600, ?string $key = null): bool;$/;"	f
+set	cache/LocalCache.php	/^    public function set(mixed $value, int $expire = 3600, ?string $key = null): bool$/;"	f
+set	cache/NetworkCache.php	/^	public function set($value, $expire = 3600, $flags = false, $throwOnFail = false)$/;"	f
+set	cache/NetworkLockCache.php	/^    public function set($value, $expire = 3600, $flags = false, $throwOnFail = false) {$/;"	f
+set	views/ModuleDecorator.php	/^			$set = $module->getSettings();$/;"	v
+setAB	views/Skin.php	/^    public function setAB($version)$/;"	f
+setCanonical	views/Skin.php	/^    public function setCanonical($url)$/;"	f
+setData	util/HttpRequest.php	/^    public function setData($data){$/;"	f
+setDescription	views/Skin.php	/^	public function setDescription($description)$/;"	f
+setError	views/Skin.php	/^	public function setError()$/;"	f
+setFacility	util/Syslogger.php	/^    public function setFacility(int $facility, int $severity): string {$/;"	f
+setFormat	util/Logger.php	/^	public function setFormat(string $format = '%d [%n:%p] %m', bool $level = false): void$/;"	f
+setInfo	util/HttpRequest.php	/^    public function setInfo($info){$/;"	f
+setKey	cache/AbstractCache.php	/^	public function setKey(string $key): Cache$/;"	f
+setKey	cache/AbstractCache.php	/^    public function setKey(string $key): Cache;$/;"	f
+setLevel	util/Logger.php	/^	public function setLevel(int $level = Logger::ERROR): void$/;"	f
+setScripts	views/Skin.php	/^    public function setScripts(array $scripts)$/;"	f
+setSkin	views/Skin.php	/^	public function setSkin($skin)$/;"	f
+setStatus	util/HttpRequest.php	/^    public function setStatus($status){$/;"	f
+setStyles	views/Skin.php	/^    public function setStyles(array $styles)$/;"	f
+setTag	views/XhtmlParser.php	/^    protected function setTag(array $elm)$/;"	f
+setTestMode	persistence/DB.php	/^    public static function setTestMode($mode = true)$/;"	f
+setTitle	views/Skin.php	/^	public function setTitle($title)$/;"	f
+setView	views/View.php	/^    public function setView($view)$/;"	f
+setViewFile	views/XhtmlView.php	/^    public function setViewFile($viewFile)$/;"	f
+short	views/XhtmlParser.php	/^		$short = $this->makeName($name);$/;"	v
+short	views/XhtmlParser.php	/^        $short = $this->makeName($name);$/;"	v
+sid	util/Coverage.php	/^			$sid = $_COOKIE['sid'];$/;"	v
+sid	util/Coverage.php	/^			$sid = mt_rand(1, 400000000);$/;"	v
+sql	persistence/SqlProfile.php	/^        $sql = stripslashes($sql);$/;"	v
+sqlDelayedStmt	persistence/DB.php	/^	function sqlDelayedStmt($logName, $stmt, $params)$/;"	f
+sqlStmt	persistence/DB.php	/^	function sqlStmt($logName, $stmt, $params)$/;"	f
+st1	views/XhtmlView.php	/^        $st1 = stat($this->_source);$/;"	v
+st2	views/XhtmlView.php	/^        $st2 = stat($rendered);$/;"	v
+start	persistence/DB.php	/^		$start = microtime(true);$/;"	v
+start	persistence/DB.php	/^        $start = microtime(true);$/;"	v
+startCache	cache/NetworkCache.php	/^    private function startCache()$/;"	f
+startsWith	views/XhtmlParser.php	/^	protected function startsWith($haystack, $needle)$/;"	f
+stmt	persistence/DB.php	/^        $stmt = $this->parseStmt($stmt, $params);$/;"	v
+success	cache/LocalCache.php	/^			 $success = apc_store($this->_key, $value, $expire);$/;"	v
+success	cache/LocalCache.php	/^            $success = ($result == null) ? false : true;$/;"	v
+success	cache/LocalCache.php	/^            $success = eaccelerator_put($this->_key, $value, $expire);$/;"	v
+success	cache/LocalCache.php	/^        $success = false;$/;"	v
+success	persistence/DB.php	/^				$success = mysqli_real_connect($handle,$/;"	v
+suffix	persistence/DB.php	/^		$suffix = ($master) ? '-master' : '-slave';$/;"	v
+suffix	views/XhtmlModifiers.php	/^				$suffix = substr($end, $epos);$/;"	v
+suffix	views/XhtmlModifiers.php	/^			$suffix = '';$/;"	v
+text	views/XhtmlParser.php	/^        $text = join('', $result);$/;"	v
+thisLvl	views/XhtmlParser.php	/^        $thisLvl = $this->getLevel($elm);$/;"	v
+timeAgo	views/XhtmlView.php	/^function timeAgo($time)$/;"	f
+tmp	views/XhtmlParser.php	/^        $tmp = umask(0007);$/;"	v
+toCache	cache/NetworkLockCache.php	/^        $toCache = array(time() + $expire, $value);$/;"	v
+tok	persistence/DB.php	/^			$tok = strtok('?');$/;"	v
+tok	persistence/DB.php	/^		$tok = strtok($stmt, '?');$/;"	v
+token	util/Logger.php	/^                $token = strtok('%');$/;"	v
+token	util/Logger.php	/^            $token = strtok($fmt, '%');$/;"	v
+trace	util/Logger.php	/^	public function trace(string $message): bool$/;"	f
+type	util/Logger.php	/^                $type = $token[0];$/;"	v
+type	views/ModuleDecorator.php	/^		$type = $module->getType();$/;"	v
+tz	util/Logger.php	/^$tz = date_default_timezone_get();$/;"	v
+uid	util/Coverage.php	/^		$uid = isset($GLOBALS['cuserid']) ? $GLOBALS['cuserid'] : null;$/;"	v
+unConstrainEntities	persistence/DB.php	/^    public function unConstrainEntities()$/;"	f
+unRender	views/Skin.php	/^	public function unRender(): void$/;"	f
+update	persistence/DB.php	/^	public function update($logName, $table, array $data, array $where)$/;"	f
+url	util/HttpRequest.php	/^		$url = $parts[1];$/;"	v
+usage	persistence/SqlProfile.php	/^		$usage = getrusage();$/;"	v
+usageText	persistence/SqlProfile.php	/^		$usageText = '';$/;"	v
+v	views/XhtmlModifiers.php	/^				$v = XhtmlModifiers::mod($p[$i], $v);$/;"	v
+v	views/XhtmlModifiers.php	/^		$v = '%s';$/;"	v
+var	views/XhtmlParser.php	/^					$var = "\\$i_$root";$/;"	v
+var	views/XhtmlParser.php	/^					$var = XhtmlModifiers::parse(implode('|', $parts), '%s');$/;"	v
+var	views/XhtmlParser.php	/^			$var = substr($var, 3);$/;"	v
+var	views/XhtmlParser.php	/^			$var = substr($var, 5);$/;"	v
+var	views/XhtmlParser.php	/^			$var = substr($var, 6);$/;"	v
+var	views/XhtmlParser.php	/^                $var = $this->inflateVariable($var);$/;"	v
+varName	views/XhtmlParser.php	/^					$varName = preg_replace('\/this->root\/', "item_{$root}", $varName);$/;"	v
+varName	views/XhtmlParser.php	/^				$varName = $modPos[0] . substr($varName, -2);$/;"	v
+varName	views/XhtmlParser.php	/^				$varName = preg_replace('\/\\$this\\-\\>root\\[\\'\\w+\\'\\]\/', '\\$tempelm', $varName);$/;"	v
+varName	views/XhtmlParser.php	/^				$varName = substr($var, 5);$/;"	v
+varName	views/XhtmlParser.php	/^			$varName = $varName2;$/;"	v
+varName	views/XhtmlParser.php	/^			$varName = ($bpos > 7) ? substr($varName, 0, $bpos-1) : $varName;$/;"	v
+varName	views/XhtmlParser.php	/^		$varName = $this->getVarName($root, $name);$/;"	v
+varName	views/XhtmlParser.php	/^            	$varName = (strstr($var, 'IF:')) ? substr($var, 3) : substr($var, 6);$/;"	v
+varName	views/XhtmlParser.php	/^            $varName = $this->getVarName($root, $var);$/;"	v
+varName	views/XhtmlParser.php	/^            $varName = str_replace('.', '_', $varName);$/;"	v
+varName2	views/XhtmlParser.php	/^			$varName2 = "\\${$short}FN";$/;"	v
+varValue	views/XhtmlParser.php	/^					$varValue = preg_replace('\/this->root\/', "item_{$root}", $varValue);$/;"	v
+varValue	views/XhtmlParser.php	/^				$varValue = XhtmlModifiers::parse($varName);$/;"	v
+variable	views/XhtmlParser.php	/^            $variable = $this->inflateVariable($variable);$/;"	v
+vars	views/XhtmlParser.php	/^        $vars = '';$/;"	v
+vars	views/XhtmlParser.php	/^        $vars = trim($vars, ',');$/;"	v
+ver	views/XhtmlView.php	/^		$ver = 'A';$/;"	v
+view	views/View.php	/^	    $this->view = $_view;$/;"	v
+view	views/View.php	/^	protected $view;$/;"	v
+view	views/View.php	/^        $this->view = $view;$/;"	v
+view	views/example/example.php	/^$view = new XhtmlView('example.xhtml');$/;"	v
+viewWrap	views/ModuleDecorator.php	/^        $viewWrap = new XhtmlView("modules-basic.xhtml");$/;"	v
+waitForLoad	views/Skin.php	/^	public function waitForLoad($wait = true)$/;"	f
+warn	util/Logger.php	/^	public function warn(string $message): bool$/;"	f
+where2	persistence/DB.php	/^            $where2 = $this->createQuery($where, DB::SELECT);$/;"	v
+ws	views/XhtmlParser.php	/^function ws($msg) { return preg_replace('\/\\s+\/', ' ', $msg); }$/;"	f
+wtime	persistence/SqlProfile.php	/^		$wtime = microtime(true) - $GLOBALS['START'];$/;"	v
+x	views/View.php	/^    public $x = array();$/;"	v
+xtdbg	views/XhtmlParser.php	/^function xtdbg($msg, $indent = false) { if (XHTML_DEBUG) echo "{$GLOBALS['xtdbgidt']}$msg\\n"; if($indent) $GLOBALS['xtdbgidt'] .= '  '; }$/;"	f
+xtdbgfin	views/XhtmlParser.php	/^function xtdbgfin() { $GLOBALS['xtdbgidt'] = substr($GLOBALS['xtdbgidt'], -2); }$/;"	f
