@@ -167,12 +167,7 @@ class XhtmlView
             $this->_parser = new XhtmlParser();
             $this->_parser->parse($this->_view, $rendered, strtoupper($elm), $panel);
 		}
-		else
-        {
-            // this is very verbose
-            $log->trace($this->_view . " view is already compiled");
-        }
-
+		
         // TODO: move to Skin inject a script variable, this really should be in the Skin ....
         if ($this->_script != '') {
 			die("FIX THIS SCRIPT INJECTION");

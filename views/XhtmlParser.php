@@ -49,6 +49,7 @@ class XhtmlParser
     protected $_currentCloseStack;
 	protected $_conditionals;
 	protected $_details;
+	protected $_voidElements = array("AREA", "BASE", "BR", "COL", "COMMAND", "EMBED", "HR", "IMG", "INPUT", "KEYGEN", "LINK", "META", "PARAM", "SOURCE", "TRACK", "WBR");
 
     const NONE = 0;
     const ALL = 1;
@@ -448,26 +449,32 @@ class XhtmlParser
 	 */
     protected function addAttribute($name, $value, $variable = '')
     {
+		//echo "<pre>name: $name value: $value, var: $variable </pre>\n";
         if (stristr($variable, '{'))
             $variable = $this->inflateVariable($variable);
+		//if ($name == "selected")
+		//	die($variable);
 
         //die("$name / $value / $variable");
 		if ($name == 'chref') {
 			$name = 'href';
-			$this->_SvarStack[$root][] = $variable;
+			//$this->_SvarStack[$root][] = $variable;
         	$this->_ScurrentAttributes[$name] = 'http://'.DOMAIN.$value;
         }
 		else if ($name == 'csrc') {
 			$name = 'src';
-			$this->_SvarStack[$root][] = $variable;
+			//$this->_SvarStack[$root][] = $variable;
 			if (defined('STATICDOMAIN'))
 				$this->_ScurrentAttributes[$name] = 'http://'.STATICDOMAIN.$value;
 			else
 				$this->_ScurrentAttributes[$name] = 'http://'.DOMAIN.$value;
 		}
         else {
-			$this->_SvarStack[$root][] = $variable;
-        	$this->_ScurrentAttributes[$name] = $value;//XmlMods::parse($value);
+			//$this->_SvarStack[$root][] = $variable;
+			if ($name == "selected")
+        		$this->_ScurrentAttributes[] = "FOOBAR='$value'";//XmlMods::parse($value);
+			else
+				$this->_ScurrentAttributes[$name] = $value;//XmlMods::parse($value);
 		}
 
         if ($variable) {
@@ -625,8 +632,15 @@ class XhtmlParser
         if (!$this->isIgnoredTag($this->_ScurrentTag)) {
             if ($this->isCompleteTag($this->_ScurrentTag) && !$this->requireFullClose($this->_ScurrentTag))
             {
+				//dbg($this->_ScurrentTag["tag"]);
+				//dbg($this->_voidElements);
                 //xtdbg("SHORT CLOSE");
-                $markup .= " />" . XHTML_EOT;
+				if (!in_array($this->_ScurrentTag["tag"], $this->_voidElements)) {
+					$markup .= " />" . XHTML_EOT;
+				}
+				else {
+					$markup .= ">" . XHTML_EOT;
+				}
             }
             // complete requires full close...
             else if ($this->isCompleteTag($this->_ScurrentTag))
@@ -696,7 +710,22 @@ class XhtmlParser
         }
         // handle normal attribute substitutions
         else if ($attrName != 'panel') {
-            $this->addAttribute($attrName, '%s', $value);
+			// do not show empty selected attributes (common case)
+			/*
+			if (strstr($attrName, "selected")) {
+				die("ATTR: $attrName : $value");
+			}
+			if (($attrName == "selected" && $value == "") || $value == "IGNORE") {
+				die("$attrName : $value");
+			}
+			*/
+			if ($attrName == "selected") {
+				//$this->addAttribute($attrName, '%s', $value);
+				$this->addAttribute("selected", '%s', $value);
+			}
+			else {
+				$this->addAttribute($attrName, '%s', $value);
+			}
         }
 		xtdbgfin();
     }
@@ -843,7 +872,11 @@ class XhtmlParser
 				//$out .= $this->SrecurseBuild($varName, false);
 				$negate = (strstr($var, 'IFNOT:') === false) ? false : true;
 				$this->_finalMarkup .= $this->getStartIfMarkup($root, $var, $name, $negate) . " // START IF\n";
-				$this->addOutput($var, $this->_SvarStack[$varName][0]);
+				// add the output var if we have it
+				if(isset($this->_SvarStack[$varName]))
+					$this->addOutput($var, $this->_SvarStack[$varName][0]);
+				else
+					$this->addOutput($var, "");
 
 				$inner = $this->SrecurseBuild($varName, false);
 				if ($inner)
@@ -899,10 +932,12 @@ class XhtmlParser
 			$out .= '}';
 		}
 		// note sure about this case
+		/*
 		else if ($varName) {
 			die("CONDITIONAL CASE NOT HIT: $varName\n");
         	$out .= "\$data_{$parentName}[] = \$templateOut_{$short}; }\n";
 		}
+		*/
 		// handle the case of an rogue:id and rogue:if on the same element
 		else {
 			$out .= "// rouge:if case\n";

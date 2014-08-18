@@ -310,6 +310,9 @@ class Skin
         $this->_view->add('content', $this->content);
 		// UNSAFE
         $this->_view->add('ver', HTML_VER); // UNSAFE
+		$this->_view->add('GOOGLE_ANALYTICS', GOOGLE_ANALYTICS);
+		//dbg($this->_view);
+
 		// UNSAFE
 		$this->_view->add('500error', $this->_error);
 		$this->_view->add('mobile', ($GLOBALS['MOBILE']) ? '1' : '0'); // from Mobile page handler
