@@ -471,10 +471,7 @@ class XhtmlParser
 		}
         else {
 			//$this->_SvarStack[$root][] = $variable;
-			if ($name == "selected")
-        		$this->_ScurrentAttributes[] = "FOOBAR='$value'";//XmlMods::parse($value);
-			else
-				$this->_ScurrentAttributes[$name] = $value;//XmlMods::parse($value);
+			$this->_ScurrentAttributes[$name] = $value;//XmlMods::parse($value);
 		}
 
         if ($variable) {
