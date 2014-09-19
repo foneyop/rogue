@@ -162,7 +162,7 @@ class LocalCache extends AbstractCache
 	 * @param string $key if set, will set the cache key to this new key for all future default key calls (until set again)
      * @return LocalCache on success, null on error
      */
-    public function delete(? string $key = null): ?LocalCache
+    public function delete(? string $key = null): ?boolean
     {
         if (!LIB_CACHE_ENABLE)
             return null;
