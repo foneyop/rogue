@@ -255,7 +255,7 @@ class Skin
      */
     public function setScripts(array $scripts)
     {
-        $this->_script = $scripts;
+        $this->_scriptList = $scripts;
     }
 
 
