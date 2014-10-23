@@ -559,6 +559,8 @@ class XhtmlParser
 		xtdbg("addContent('$content', $variable)", true);
         if ($this->_ScurrentTag['tag'] == 'SCRIPT')
             $this->_ScurrentContent .= ltrim($content);
+		else if ($this->_ScurrentTag['tag'] == 'PRE')
+            $this->_ScurrentContent .= $content;
         else
             $this->_ScurrentContent .= preg_replace('/\s+/', ' ', $content);
         if ($variable)
@@ -591,11 +593,15 @@ class XhtmlParser
 		xtdbg("setTag({$elm['tag']})", true);
         $this->_ScurrentTag= $elm;
         $this->_ScurrentAttributes = array();
-        if (isset($elm['value']) && $this->_ScurrentTag['tag'] != 'SCRIPT') {
-            $this->_ScurrentContent = preg_replace('/\s+/', " ", $elm['value']);
-		} else if (isset($elm['value'])) {
+
+		if (isset($elm['value']) && $this->_ScurrentTag['tag'] == 'SCRIPT') {
             $this->_ScurrentContent = preg_replace('/[ \t]+/', ' ', $elm['value']);
+		} else if (isset($elm['value']) && $this->_ScurrentTag['tag'] == 'PRE') {
+            $this->_ScurrentContent = $elm['value'];
+		} else if (isset($elm['value'])) {
+            $this->_ScurrentContent = preg_replace('/\s+/', " ", $elm['value']);
 		}
+		
 		xtdbg("content: " . $this->_ScurrentContent);
 		xtdbgfin();
     }
