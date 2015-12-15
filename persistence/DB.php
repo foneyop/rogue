@@ -85,8 +85,8 @@ class DB
 	const UPDATE = 2;
 	const INSERT = 3;
 
-	static protected $_ENCODE1 = array("'", '%', '"', "\n", "\r");
-	static protected $_ENCODE2 = array("\\'", '\%', '\"', '\n', '\r');
+	static protected $_ENCODE1 = array("'", "\n", "\r");
+	static protected $_ENCODE2 = array("''", '\n', '\r');
 
 		/** @ var array $_resources references to all mysql resources, so we can free them */
     protected $_resources;
@@ -786,10 +786,10 @@ class DB
 			{
 				if ($value == null)
 					$query .= ($type == 3) ? 'NULL': "$column IS NULL";
-				else if (isset($value[1]) && $value[0] == '!' && $value[1] == 'L')
-					$query .= ($type == 3) ? substr($value, 1) : "$column " . substr($value, 1);
-				else if (isset($value[0]) && $value[0] == '!')
-					$query .= ($type == 3) ? substr($value, 1) : "$column $op " . substr($value, 1);
+				//else if (isset($column[1]) && $column[0] == '!' && $value[1] == 'L')
+			//		$query .= ($type == 3) ? $value : substr($column, 1). " $value");
+				else if (isset($column[0]) && $column[0] == '!')
+					$query .= ($type == 3) ? $value : substr($column, 1) . " $op $value");
 				else
 					$query .= ($type == 3) ? '\'' . $this->encode($value) . '\'' : "$column $op '" . $this->encode($value) . '\' ';
 			}
