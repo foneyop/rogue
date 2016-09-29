@@ -42,7 +42,7 @@ class XhtmlView
     private $root = array();
     private $_view;
     private $_forceCompile = false;
-    private $_source = '';
+    public $_source = '';
     private $_script = '';
     private $_parser = null;
 
@@ -75,6 +75,7 @@ class XhtmlView
             $this->_source = $viewFile;
         else
             $this->_source = VIEW_DIR . '/' . $viewFile;
+		assert('is_file($this->_source)', 'view file [{$this->_source}] does not exist');
         //echo "<pre>" . $this->_source . "</pre>";
     }
 
@@ -129,6 +130,7 @@ class XhtmlView
             $this->_source = $viewFile;
         else
             $this->_source = VIEW_DIR . '/' . $viewFile;
+		assert('is_file($this->_source)', "view file [{$this->_source}] does not exist");
     }
 
     /**
@@ -150,6 +152,8 @@ class XhtmlView
         $rendered = VIEW_CACHE_DIR . "/" . $this->_view . "-{$elm}-{$panel}-$ln-$ver";
         $st2 = stat($rendered);
         $st1 = stat($this->_source);
+		assert('$st1["size"]>0',"unable to stat xhtml view file");
+
 		//echo "<pre>\n";
 		//goto foo;
         // compile if not cached, or first compile
@@ -158,15 +162,22 @@ class XhtmlView
             $log->fatal("can not find view file: " . $this->_source);
             return '';
         }
+
+		//echo "<pre>";
+		//print_r($st1['mtime']);
+		//print_r($st2['mtime']);
 		// always compile? not ever compiled?  source updated ?
         if (!LIB_VIEW_CACHE_ENABLE || !$st2 || intval($st1['mtime']) > intval($st2['mtime']))
         {
-
             $log->info($this->_view . " first compile, cache disabled, or stale");
             require_once ROGUE_DIR . '/views/XhtmlParser.php';
             $this->_parser = new XhtmlParser();
             $this->_parser->parse($this->_view, $rendered, strtoupper($elm), $panel);
 		}
+		else  {
+			dbg("CACHED!");
+		}
+
 		
         // TODO: move to Skin inject a script variable, this really should be in the Skin ....
         if ($this->_script != '') {

@@ -141,6 +141,8 @@ class HttpRequest
 	{
 		$log = Logger::getLogger('HttpRequest');
 		$log->debug('starting HTTP post to, url: ' . $url);
+		$parsed = parse_url($url);
+		//dbg($parsed);
 
 		// build the post content paramater
 		$content = '';
@@ -178,17 +180,24 @@ class HttpRequest
 		$log->debug('stream context created');
 		//$fp = fopen($url, 'rb', false, $ctx);
 		$parts = explode('!', $url);
-		$fp = stream_socket_client($parts[0], $err, $errstr, $timeout, STREAM_CLIENT_CONNECT, $ctx);
+		if (count($parts) > 1) 
+			$fp = stream_socket_client($parts[0], $err, $errstr, $timeout, STREAM_CLIENT_CONNECT, $ctx);
+		else {
+			$port = (isset($parsed['port'])) ? $parsed['port'] : ($parsed['scheme'] == "https")  ? "443" : "80";
+			$fp = stream_socket_client("tcp://{$parsed['host']}:$port", $err, $errstr, $timeout, STREAM_CLIENT_CONNECT, $ctx);
+		}
 		if (!$fp)
 		{
-			throw new HttpException("Unable to connect to [$url], $php_errormsg");
+			throw new HttpException("Unable to connect to [$url], errno: $err, $errstr");
 		}
 
 		// read data
 		$log->debug('stream connected');
 		//stream_set_timeout($fp, $timeout);
-		$url = $parts[1];
-		$req = "$type {$url} HTTP/1.1\r\nHost: {$optional_headers['host']}\r\nUser-Agent: {$optional_headers['ua']}\r\nConnection: close\r\n\r\n";
+		if (isset($parts[1])) { $url = $parts[1]; }
+		//dbg($parsed);
+		$req = "$type {$parsed['path']}?{$parsed['query']} HTTP/1.1\r\nHost: {$parsed['host']}\r\nUser-Agent: {$optional_headers['ua']}\r\nConnection: close\r\n\r\n";
+		//print_r($req);
 		fputs($fp, $req);
 		$response = @stream_get_contents($fp);
 		$info = stream_get_meta_data($fp);

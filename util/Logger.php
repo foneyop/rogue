@@ -1,4 +1,5 @@
-<?hh //Partial
+<?hh
+
 /**
  * @category PHP
  * @package util
@@ -13,38 +14,40 @@
  * you can disable by setting the $GLOBAL['NoLoggerHandler'] or by
  * calling Logger::enableErrorHandler(false);
  */
+function NullHandler(int $errno, string $errstr, string $errfile, int $errline)
+{
+	return true;
+}
+
+function LoggerHandler(int $errno, string $errstr, string $errfile, int $errline)
+{
+	// if there is a problem with the Logger, we dont want to create a recursive loop here
+	set_error_handler('NullHandler');
+	$message = "$errstr on $errfile:$errline";
+	switch ($errno)
+	{
+		case E_USER_ERROR:
+		case E_CORE_ERROR:
+		case E_PARSE:
+		case E_COMPILE_WARNING:
+		case E_USER_ERROR:
+		default:
+			Logger::getLogger('phperror')->error($message);
+			break;
+		case E_WARNING:
+		case E_CORE_WARNING:
+		case E_RECOVERABLE_ERROR:
+		case E_USER_WARNING:
+		case E_NOTICE:
+		case E_USER_NOTICE:
+			Logger::getLogger('phperror')->warn($message);
+	}
+	return true;
+}
+
 if (!isset($GLOBALS['NoLoggerHandler']) || $GLOBALS['NoLoggerHandler'] !== true)
 {
-	function NullHandler(int $errno, string $errstr, string $errfile, int $errline): void
-    {
-        return true;
-    }
 
-	function LoggerHandler(int $errno, string $errstr, string $errfile, int $errline): void
-	{
-        // if there is a problem with the Logger, we dont want to create a recursive loop here
-	    set_error_handler('NullHandler');
-		$message = "$errstr on $errfile:$errline";
-		switch ($errno)
-		{
-			case E_USER_ERROR:
-			case E_CORE_ERROR:
-			case E_PARSE:
-			case E_COMPILE_WARNING:
-			case E_USER_ERROR:
-			default:
-				Logger::getLogger('phperror')->error($message);
-				break;
-			case E_WARNING:
-			case E_CORE_WARNING:
-			case E_RECOVERABLE_ERROR:
-			case E_USER_WARNING:
-			case E_NOTICE:
-			case E_USER_NOTICE:
-				Logger::getLogger('phperror')->warn($message);
-		}
-		return true;
-	}
 	set_error_handler('LoggerHandler');
 }
 
@@ -212,7 +215,7 @@ class Logger
             // sometimes we can hit the descructor twice (if writing the log creates a warning)
             Logger::$_logFile = false;
             self::$_written = true;
-            $this->_entries = array();
+			Logger::$_entries = array();
 		}
 	}
 
@@ -278,9 +281,12 @@ class Logger
 			else
 				$output .= "<br>$entry[2]\n";
 		}
-		if ($diagnostics)
+		/*
+		if ($diagnostics) {
 			foreach ($diagnostics as $key => $value)
 				$output .= "<br><span style='color: blue'>$key in: $value secs</span>\n";
+		}
+		*/
 		$output .= '</div>';
 		return $output;
 	}
@@ -386,8 +392,8 @@ class Logger
 		$message = $this->msgFormat($message, 'trace', Logger::TRACE);
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, (int)LOGGER::TRACE, $message);
-		$this->dispatch(LOGGER::TRACE, $message);
+		Logger::$_entries[] = array($this->_logName, (int)Logger::TRACE, $message);
+		$this->dispatch(Logger::TRACE, $message);
 		return false;
 	}
 
@@ -407,8 +413,8 @@ class Logger
 		$message = $this->msgFormat($message, 'debug', Logger::DEBUG);
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, LOGGER::DEBUG, $message);
-		$this->dispatch(LOGGER::DEBUG, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::DEBUG, $message);
+		$this->dispatch(Logger::DEBUG, $message);
 		return false;
 	}
 
@@ -427,8 +433,8 @@ class Logger
 		$message = $this->msgFormat($message, 'info', Logger::INFO);
 		// add the log line to our entries
 
-		Logger::$_entries[] = array($this->_logName, LOGGER::INFO, $message);
-		$this->dispatch(LOGGER::INFO, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::INFO, $message);
+		$this->dispatch(Logger::INFO, $message);
 		return false;
 	}
 
@@ -447,8 +453,8 @@ class Logger
 		$message = $this->msgFormat($message, 'warn', Logger::WARN);
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, LOGGER::WARN, $message);
-		$this->dispatch(LOGGER::WARN, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::WARN, $message);
+		$this->dispatch(Logger::WARN, $message);
 		return false;
 	}
 
@@ -467,8 +473,8 @@ class Logger
 		$message = $this->msgFormat($message, 'error', Logger::ERROR);
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, LOGGER::ERROR, $message);
-		$this->dispatch(LOGGER::ERROR, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::ERROR, $message);
+		$this->dispatch(Logger::ERROR, $message);
 		return false;
 	}
 
@@ -487,8 +493,8 @@ class Logger
 		$message = $this->msgFormat($message, 'fatal', Logger::FATAL);
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, LOGGER::FATAL, $message);
-		$this->dispatch(LOGGER::FATAL, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::FATAL, $message);
+		$this->dispatch(Logger::FATAL, $message);
 		return false;
 	}
 
@@ -505,10 +511,11 @@ class Logger
 
 		// format the mesage
 		$message = $this->msgFormat($message, 'security', Logger::SECURITY);
+		$message .= print_r(debug_backtrace(0, 5));
 
 		// add the log line to our entries
-		Logger::$_entries[] = array($this->_logName, LOGGER::SECURITY, $message);
-		$this->dispatch(LOGGER::SECURITY, $message);
+		Logger::$_entries[] = array($this->_logName, Logger::SECURITY, $message);
+		$this->dispatch(Logger::SECURITY, $message);
 		return false;
 	}
 
@@ -643,27 +650,35 @@ class Logger
                         break;
                     case 'f':
                         $cacheable = false;
-                        if ($bt === false)
-                            $bt = $this->getBtCaller();
+                        if ($bt === false) {
+							$bt = debug_backtrace();
+							$bt = $bt[1];
+						}
                         $paths = explode('/', $bt['file']);
                         $line .= array_pop($paths);
                         break;
                     case 'F':
                         $cacheable = false;
-                        if ($bt === false)
-                            $bt = $this->getBtCaller();
+                        if ($bt === false) {
+							$bt = debug_backtrace();
+							$bt = $bt[1];
+						}
                         $line .= $bt['file'];
                         break;
                     case 'L':
                     case 'M':
                         $cacheable = false;
-                        if ($bt === false)
-                            $bt = $this->getBtCaller();
+                        if ($bt === false) {
+							$bt = debug_backtrace();
+							$bt = $bt[1];
+						}
                         $line .= $bt['line'];
                         break;
                     case 'A':
                         $cacheable = false;
-                        $bt = debug_backtrace();
+                        //$bt = debug_backtrace();
+						$bt = debug_backtrace();
+						$bt = $bt[1];
                         $line .= var_export($bt[2]['args'], true);
                         break;
                     case 'B':
@@ -704,7 +719,7 @@ class Logger
 	 * get the caller information through a backtrace
 	 * @return string the backtrace caller that called the log message (2 deep)
 	 */
-	private static function getBtCaller(): string
+	private function getBtCaller(): array
 	{
 		$bt = debug_backtrace();
 		return $bt[2];

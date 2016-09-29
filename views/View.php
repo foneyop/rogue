@@ -18,6 +18,7 @@ class View
 
     public function __construct($_view)
 	{
+		assert(is_file($_view, "view file: [$_view] not found"));
 	    $this->view = $_view;
 	}
     public function __get($nm)
@@ -44,6 +45,7 @@ class View
 
     public function setView($view)
     {
+		assert(is_file($_view, "view file: [$view] not found"));
         $this->view = $view;
     }
 

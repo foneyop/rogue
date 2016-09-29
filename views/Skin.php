@@ -103,9 +103,9 @@ class Skin
             $this->_view->add('style', $this->_style);
             // default canonical page
             if (!$this->_canonical) { $this->_canonical = str_replace(array(' ', '%20', '%26'), array('+', '+', 'and'), rtrim($_SERVER['REQUEST_URI'], '/')); }
-            $this->_view->add('canonical', 'http://' . DOMAIN . $this->_canonical);
-            $this->_view->add('staticdomain', 'http://' . STATICDOMAIN);
-            $this->_view->add('domain', 'http://' . DOMAIN);
+            $this->_view->add('canonical', '//' . DOMAIN . $this->_canonical);
+            $this->_view->add('staticdomain', '//' . STATICDOMAIN);
+            $this->_view->add('domain', '//' . DOMAIN);
             $this->_view->add('sharetitle', $this->_shareTitle);
             $this->_view->add('sharedescription', $this->_shareDescription);
             $this->_view->add('abver', $this->_ab);
@@ -187,7 +187,7 @@ class Skin
 	public function addScript($script, $jasonCallback = '')
 	{
         // add version number for local files
-        if (!stristr($script, "http://"))
+        if (!stristr($script, "//"))
         {
             if (stristr($script, '?'))
                 $script .= '&v='.HTML_VER;
@@ -195,11 +195,11 @@ class Skin
                 $script .= '?v='.HTML_VER;
             if (defined('STATICDOMAIN') && stristr($script, '/scripts'))
             {
-                $script = 'http://' . STATICDOMAIN . $script;
+                $script = '//' . STATICDOMAIN . $script;
             }
             else
             {
-                $script = 'http://' . DOMAIN . $script;
+                $script = '//' . DOMAIN . $script;
             }
         }
 
@@ -232,7 +232,7 @@ class Skin
 	public function addStyle($style)
 	{
         // add version number for local files
-        if (!stristr($style, "http://"))
+        if (!stristr($style, "//"))
             $style .= '?='.HTML_VER;
         if (array_search($style, $this->_style))
             Logger::getLogger('mvc')->error("adding the same style 2x $style");
@@ -333,7 +333,7 @@ class Skin
 		*/
 		
 
-		if (!$returnResult) {
+		if ($returnResult) {
 			$doc .=  $this->_view->render('body', 'body') . "</html>";
 		} else {
 			echo $this->_view->render('body', 'body') . "</html>";

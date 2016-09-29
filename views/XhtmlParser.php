@@ -389,8 +389,8 @@ class XhtmlParser
 
         // if we have a static domain, rewrite all relative URLS to static absolute ones.
         if (defined('STATICDOMAIN')) {
-            $markup = preg_replace('/(src\s*=\s*[\'"])\//', '${1}http://'. STATICDOMAIN . '/', $markup);
-            $markup = preg_replace('/(href\s*=\s*[\'"])\//', '${1}http://'. DOMAIN .'/', $markup);
+            $markup = preg_replace('/(src\s*=\s*[\'"])\//', '${1}//'. STATICDOMAIN . '/', $markup);
+            $markup = preg_replace('/(href\s*=\s*[\'"])\//', '${1}//'. DOMAIN .'/', $markup);
         }
 
 
@@ -459,15 +459,15 @@ class XhtmlParser
 		if ($name == 'chref') {
 			$name = 'href';
 			//$this->_SvarStack[$root][] = $variable;
-        	$this->_ScurrentAttributes[$name] = 'http://'.DOMAIN.$value;
+        	$this->_ScurrentAttributes[$name] = '//'.DOMAIN.$value;
         }
 		else if ($name == 'csrc') {
 			$name = 'src';
 			//$this->_SvarStack[$root][] = $variable;
 			if (defined('STATICDOMAIN'))
-				$this->_ScurrentAttributes[$name] = 'http://'.STATICDOMAIN.$value;
+				$this->_ScurrentAttributes[$name] = '//'.STATICDOMAIN.$value;
 			else
-				$this->_ScurrentAttributes[$name] = 'http://'.DOMAIN.$value;
+				$this->_ScurrentAttributes[$name] = '//'.DOMAIN.$value;
 		}
         else {
 			//$this->_SvarStack[$root][] = $variable;
