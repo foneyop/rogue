@@ -175,7 +175,7 @@ class XhtmlView
             $this->_parser->parse($this->_view, $rendered, strtoupper($elm), $panel);
 		}
 		else  {
-			dbg("CACHED!");
+			//dbg("CACHED!");
 		}
 
 		
