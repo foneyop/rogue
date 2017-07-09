@@ -128,7 +128,9 @@ class XhtmlParser
         {
             echo "<pre>\n";
             debug_print_backtrace();
-            echo "\n" . xml_error_string(xml_get_error_code($parser)) . "\n";
+			echo "</pre>\n";
+            echo "<h3>XML ERROR: [" . xml_error_string(xml_get_error_code($parser)) . "]</h3>\n";
+			echo "<h3>[{$this->_source}:" . xml_get_current_line_number($parser) . "]</h3>\n";
             die("\nunable to parse: " . $this->_source);
         }
         xml_parser_free($parser);
@@ -463,12 +465,12 @@ class XhtmlParser
 		else if ($name == 'csrc') {
 			$name = 'src';
 			//$this->_SvarStack[$root][] = $variable;
-			if (defined('STATICDOMAIN')) {
+			if (defined('STATICDOMAIN'))
+				//$this->_ScurrentAttributes[$name] = '//'.STATICDOMAIN.$value;
 				$this->_ScurrentAttributes[$name] = $value;
-}
-			else {
-				$this->_ScurrentAttributes[$name] = '//'.DOMAIN.$value;
-			}
+			else
+				//$this->_ScurrentAttributes[$name] = '//'.DOMAIN.$value;
+				$this->_ScurrentAttributes[$name] = $value;
 		}
         else {
 			//$this->_SvarStack[$root][] = $variable;
