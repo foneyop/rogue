@@ -452,10 +452,9 @@ class XhtmlParser
 		//echo "<pre>name: $name value: $value, var: $variable </pre>\n";
         if (stristr($variable, '{'))
             $variable = $this->inflateVariable($variable);
-		//if ($name == "selected")
-		//	die($variable);
 
-        //die("$name / $value / $variable");
+		// 1/18/2017 - i think somewhere else auto rewrites static domain for src, so
+		// this looks depricated
 		if ($name == 'chref') {
 			$name = 'href';
 			//$this->_SvarStack[$root][] = $variable;
@@ -464,10 +463,12 @@ class XhtmlParser
 		else if ($name == 'csrc') {
 			$name = 'src';
 			//$this->_SvarStack[$root][] = $variable;
-			if (defined('STATICDOMAIN'))
-				$this->_ScurrentAttributes[$name] = '//'.STATICDOMAIN.$value;
-			else
+			if (defined('STATICDOMAIN')) {
+				$this->_ScurrentAttributes[$name] = $value;
+}
+			else {
 				$this->_ScurrentAttributes[$name] = '//'.DOMAIN.$value;
+			}
 		}
         else {
 			//$this->_SvarStack[$root][] = $variable;
