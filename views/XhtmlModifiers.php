@@ -60,6 +60,10 @@ class XhtmlModifiers
 
         switch($parts[0])
         {
+			case "bbcode":
+				#$result = "str_replace(array('[h]', '[/h]', '[b]', '[/b]', '[i]', '[/i]', '[code]', '[/code']), array('<h3>', '</h3>', '<strong>', '</strong>', '<em>', '</em>', '<pre>', '</pre>'), $v)";
+                $result = "str_replace(array(\"\n\", '[h]', '[/h]', '[b]', '[/b]'), array('<br />', '<h3>', '</h3>', '<strong>', '</strong>'), $v)";
+                break;
             case "upper":
                 $result = "strtoupper($v)";
                 break;
